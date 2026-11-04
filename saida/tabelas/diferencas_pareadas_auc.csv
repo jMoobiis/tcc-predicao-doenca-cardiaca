@@ -1,0 +1,11 @@
+modelo_a;modelo_b;diferenca_auc;ic_inf;ic_sup;exclui_zero
+Regressão Logística;Árvore de Decisão;0.0222;-0.0117;0.0587;False
+Regressão Logística;Random Forest;-0.0213;-0.0415;-0.0041;True
+Regressão Logística;SVM;-0.0102;-0.0274;0.0058;False
+Regressão Logística;k-NN;-0.0099;-0.0364;0.0147;False
+Árvore de Decisão;Random Forest;-0.0435;-0.0748;-0.0175;True
+Árvore de Decisão;SVM;-0.0324;-0.0714;0.0046;False
+Árvore de Decisão;k-NN;-0.0321;-0.0707;0.0011;False
+Random Forest;SVM;0.0111;-0.0060;0.0300;False
+Random Forest;k-NN;0.0114;-0.0091;0.0321;False
+SVM;k-NN;0.0003;-0.0223;0.0214;False

@@ -1,0 +1,16 @@
+modelo;limiar_regra;limiar;revocacao;especificidade;VP;FN;FP;VN;delta_FN;delta_FP
+Regressão Logística;padrao 0,5;0.500;0.843;0.707;86;16;24;58;0;0
+Regressão Logística;meta 90%;0.416;0.912;0.659;93;9;28;54;-7;4
+Regressão Logística;meta 95%;0.291;0.961;0.573;98;4;35;47;-12;11
+Árvore de Decisão;padrao 0,5;0.500;0.814;0.659;83;19;28;54;0;0
+Árvore de Decisão;meta 90%;0.286;0.931;0.610;95;7;32;50;-12;4
+Árvore de Decisão;meta 95%;0.145;0.990;0.317;101;1;56;26;-18;28
+Random Forest;padrao 0,5;0.500;0.882;0.707;90;12;24;58;0;0
+Random Forest;meta 90%;0.461;0.902;0.695;92;10;25;57;-2;1
+Random Forest;meta 95%;0.362;0.971;0.610;99;3;32;50;-9;8
+SVM;padrao 0,5;0.500;0.882;0.707;90;12;24;58;0;0
+SVM;meta 90%;0.429;0.941;0.634;96;6;30;52;-6;6
+SVM;meta 95%;0.264;0.971;0.573;99;3;35;47;-9;11
+k-NN;padrao 0,5;0.500;0.853;0.720;87;15;23;59;0;0
+k-NN;meta 90%;0.429;0.892;0.671;91;11;27;55;-4;4
+k-NN;meta 95%;0.286;0.951;0.585;97;5;34;48;-10;11

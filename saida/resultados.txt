@@ -1,0 +1,296 @@
+==============================================================================
+AMBIENTE DE EXECUCAO (Quadro 6)
+==============================================================================
+Python         3.14.4
+pandas         3.0.3
+NumPy          2.4.4
+scikit-learn   1.9.1
+Matplotlib     3.11.2
+seaborn        0.13.2
+SciPy          1.18.1
+Sistema        Windows-11-10.0.26300-SP0
+Processador    AMD Ryzen 7 5700X3D 8-Core Processor (16 nucleos logicos)
+Memoria (GB)   15.9
+Semente        42
+
+==============================================================================
+4.1  ANALISE EXPLORATORIA DE DADOS
+==============================================================================
+Total de registros: 920
+Atributos preditores no arquivo: 13
+
+--- Tabela 1: distribuicao do alvo por base ---
+               Registros  Classe_0  Classe_1  pct_classe_1
+base                                                      
+Cleveland            303       164       139          45.9
+Hungria              294       188       106          36.1
+Suica                123         8       115          93.5
+Long Beach VA        200        51       149          74.5
+Total                920       411       509          55.3
+
+--- Tabela 2: percentual de valores ausentes por atributo e base ---
+base      Cleveland  Hungria  Suica  Long Beach VA  Total
+age             0.0      0.0    0.0            0.0    0.0
+sex             0.0      0.0    0.0            0.0    0.0
+cp              0.0      0.0    0.0            0.0    0.0
+trestbps        0.0      0.3    1.6           28.5    6.5
+chol            0.0      7.8  100.0           28.0   22.0
+fbs             0.0      2.7   61.0            3.5    9.8
+restecg         0.0      0.3    0.8            0.0    0.2
+thalach         0.0      0.3    0.8           26.5    6.0
+exang           0.0      0.3    0.8           26.5    6.0
+oldpeak         0.0      0.0    4.9           28.0    6.7
+slope           0.0     64.6   13.8           51.0   33.6
+ca              1.3     99.0   95.9           99.0   66.4
+thal            0.7     90.5   42.3           83.0   52.8
+
+--- Tabela 3: estatisticas descritivas dos atributos numericos ---
+            mean    std   min    50%    max  count  assimetria
+age        53.51   9.42  28.0   54.0   77.0  920.0       -0.20
+trestbps  132.29  18.54  80.0  130.0  200.0  860.0        0.63
+chol      246.83  58.53  85.0  239.5  603.0  718.0        1.31
+thalach   137.55  25.93  60.0  140.0  202.0  865.0       -0.21
+oldpeak     0.88   1.09  -2.6    0.5    6.2  858.0        1.04
+ca          0.68   0.94   0.0    0.0    3.0  309.0        1.16
+
+--- Apoio a discussao: ausencia de colesterol x diagnostico ---
+% de positivos com chol AUSENTE:  80.7  (n=202)
+% de positivos com chol PRESENTE: 48.2  (n=718)
+Registros com chol >= 400 mg/dL: 13
+
+Figuras exploratorias salvas em ./saida/
+
+==============================================================================
+PRE-PROCESSAMENTO (Secao 3.3)
+==============================================================================
+Treino: 736 registros | Teste: 184 registros
+Limiar de descarte: 50% de ausencia, medido SO no treino
+   trestbps    6.8% ausente no treino  
+   chol       21.6% ausente no treino  
+   fbs         9.2% ausente no treino  
+   thalach     6.4% ausente no treino  
+   exang       6.4% ausente no treino  
+   oldpeak     7.1% ausente no treino  
+   slope      32.7% ausente no treino  
+   ca         65.9% ausente no treino  DESCARTADO
+   thal       51.8% ausente no treino  DESCARTADO
+Atributos UTILIZADOS (11): ['age', 'sex', 'cp', 'trestbps', 'chol', 'fbs', 'restecg', 'thalach', 'exang', 'oldpeak', 'slope']
+
+==============================================================================
+4.2  DESEMPENHO DOS MODELOS
+==============================================================================
+--- Tabela 4: hiperparametros selecionados (busca em grade no treino inteiro) ---
+Regressão Logística: {'C': 0.1, 'solver': 'lbfgs'} | AUC media (5 dobras internas) = 0.8724
+Árvore de Decisão: {'criterion': 'entropy', 'max_depth': 3, 'min_samples_leaf': 1, 'min_samples_split': 2} | AUC media (5 dobras internas) = 0.7924
+Random Forest: {'max_depth': 5, 'max_features': 'sqrt', 'min_samples_leaf': 2, 'n_estimators': 200} | AUC media (5 dobras internas) = 0.8699
+SVM: {'C': 1, 'gamma': 'auto', 'kernel': 'rbf'} | AUC media (5 dobras internas) = 0.8728
+k-NN: {'metric': 'manhattan', 'n_neighbors': 15, 'weights': 'uniform'} | AUC media (5 dobras internas) = 0.8665
+
+Estabilidade da escolha: configuracao vencedora em cada uma das 10 dobras externas
+  Regressão Logística: 3 configuracoes distintas; mais frequente (7x): {"C": 0.1, "solver": "lbfgs"}
+  Árvore de Decisão: 7 configuracoes distintas; mais frequente (2x): {"criterion": "gini", "max_depth": 5, "min_samples_leaf": 1, "min_samples_split": 10}
+  Random Forest: 7 configuracoes distintas; mais frequente (2x): {"max_depth": 5, "max_features": "sqrt", "min_samples_leaf": 1, "n_estimators": 100}
+  SVM: 6 configuracoes distintas; mais frequente (5x): {"C": 1, "gamma": "auto", "kernel": "rbf"}
+  k-NN: 4 configuracoes distintas; mais frequente (5x): {"metric": "manhattan", "n_neighbors": 21, "weights": "uniform"}
+
+--- Tabela 5: validacao cruzada ANINHADA, 10 dobras externas (media ± desvio) ---
+Modelo                        accuracy       precision          recall     specificity              f1         roc_auc
+Regressão Logística      0.7948 ±0.027   0.8060 ±0.041   0.8348 ±0.070   0.7448 ±0.080   0.8172 ±0.028   0.8770 ±0.028
+Árvore de Decisão        0.7351 ±0.045   0.7495 ±0.059   0.7981 ±0.072   0.6563 ±0.128   0.7689 ±0.038   0.7999 ±0.038
+Random Forest            0.7990 ±0.055   0.7944 ±0.062   0.8669 ±0.053   0.7146 ±0.109   0.8272 ±0.045   0.8736 ±0.024
+SVM                      0.7963 ±0.036   0.7983 ±0.044   0.8499 ±0.051   0.7296 ±0.077   0.8218 ±0.032   0.8732 ±0.029
+k-NN                     0.7949 ±0.049   0.7893 ±0.055   0.8670 ±0.061   0.7052 ±0.107   0.8240 ±0.039   0.8573 ±0.037
+
+Melhor modelo pela AUC da validacao aninhada: Regressão Logística
+
+--- Tabela 6: desempenho no conjunto de teste [IC 95% bootstrap] ---
+Regressão Logística:
+    accuracy=0.7826 [0.723; 0.842]  precision=0.7818 [0.700; 0.858]  recall=0.8431 [0.772; 0.913]
+    specificity=0.7073 [0.605; 0.805]  f1=0.8113 [0.751; 0.866]  roc_auc=0.8883 [0.840; 0.931]
+Árvore de Decisão:
+    accuracy=0.7446 [0.679; 0.804]  precision=0.7477 [0.661; 0.826]  recall=0.8137 [0.737; 0.889]
+    specificity=0.6585 [0.548; 0.762]  f1=0.7793 [0.712; 0.838]  roc_auc=0.8661 [0.812; 0.913]
+Random Forest:
+    accuracy=0.8043 [0.745; 0.859]  precision=0.7895 [0.712; 0.867]  recall=0.8824 [0.820; 0.942]
+    specificity=0.7073 [0.607; 0.803]  f1=0.8333 [0.779; 0.882]  roc_auc=0.9096 [0.868; 0.946]
+SVM:
+    accuracy=0.8043 [0.745; 0.859]  precision=0.7895 [0.711; 0.866]  recall=0.8824 [0.820; 0.940]
+    specificity=0.7073 [0.607; 0.803]  f1=0.8333 [0.777; 0.882]  roc_auc=0.8985 [0.851; 0.938]
+k-NN:
+    accuracy=0.7935 [0.734; 0.853]  precision=0.7909 [0.712; 0.865]  recall=0.8529 [0.783; 0.917]
+    specificity=0.7195 [0.623; 0.812]  f1=0.8208 [0.763; 0.876]  roc_auc=0.8982 [0.854; 0.938]
+
+Diferenca de AUC no teste: Regressão Logística menos cada outro modelo [IC 95% bootstrap pareado]
+  vs Árvore de Decisão    +0.0222  [-0.012; +0.059]
+  vs Random Forest        -0.0213  [-0.042; -0.004]
+  vs SVM                  -0.0102  [-0.027; +0.006]
+  vs k-NN                 -0.0099  [-0.036; +0.015]
+
+--- Tabela 7: matriz de confusao do melhor modelo (Regressão Logística), limiar 0,5 ---
+VN = 58   FP = 24
+FN = 16   VP = 86
+
+--- Apoio a discussao da Tabela 7: limiar escolhido no TREINO (Regressão Logística) ---
+O limiar e o maior valor cuja revocacao, nas previsoes fora da dobra da validacao
+aninhada, atinge a meta. So depois ele e aplicado ao teste.
+  meta de revocacao 90%: limiar=0.416 -> no teste: revocacao=0.912 precisao=0.769 especificidade=0.659 FN=9 FP=28
+  meta de revocacao 95%: limiar=0.291 -> no teste: revocacao=0.961 precisao=0.737 especificidade=0.573 FN=4 FP=35
+
+--- Tabela 9: desempenho no teste por base hospitalar (limiar 0,5) ---
+  Cleveland      n= 55 positivos= 26  acuracia=0.800 revocacao=0.885 especificidade=0.724 AUC=0.926
+  Hungria        n= 64 positivos= 22  acuracia=0.812 revocacao=0.773 especificidade=0.833 AUC=0.911
+  Suica          n= 28 positivos= 27  acuracia=0.714 revocacao=0.741 especificidade=0.000 AUC=0.407
+  Long Beach VA  n= 37 positivos= 27  acuracia=0.757 revocacao=0.963 especificidade=0.200 AUC=0.759
+  (modelo: Regressão Logística; demais modelos no JSON)
+
+--- Tabela 8: importancia por permutacao no teste (queda de AUC), Random Forest ---
+           media      dp
+cp        0.1138  0.0270
+oldpeak   0.0219  0.0091
+exang     0.0214  0.0094
+sex       0.0131  0.0059
+thalach   0.0092  0.0068
+chol      0.0043  0.0036
+age       0.0016  0.0060
+trestbps  0.0015  0.0015
+slope     0.0007  0.0023
+fbs       0.0005  0.0013
+restecg  -0.0007  0.0016
+
+--- Importancia por permutacao no teste, Regressão Logística ---
+           media      dp
+cp        0.0934  0.0225
+oldpeak   0.0357  0.0123
+sex       0.0242  0.0071
+exang     0.0184  0.0072
+thalach   0.0132  0.0085
+fbs       0.0015  0.0016
+slope     0.0007  0.0028
+trestbps -0.0003  0.0004
+chol     -0.0014  0.0034
+age      -0.0030  0.0077
+restecg  -0.0055  0.0025
+
+--- Comparacao: importancia por reducao de impureza (MDI) do Random Forest, por atributo ---
+cp          0.3217
+exang       0.1431
+oldpeak     0.1238
+thalach     0.1086
+age         0.1010
+chol        0.0580
+sex         0.0571
+trestbps    0.0332
+slope       0.0239
+restecg     0.0216
+fbs         0.0080
+
+==============================================================================
+REVISAO DO ORIENTADOR: ANALISES ACRESCENTADAS
+==============================================================================
+--- (1) Diferencas pareadas de AUC no teste, todos os pares (a - b) [IC 95% bootstrap] ---
+  Regressão Logística  - Árvore de Decisão    +0.0222 [-0.012; +0.059]  inclui zero
+  Regressão Logística  - Random Forest        -0.0213 [-0.042; -0.004]  EXCLUI ZERO
+  Regressão Logística  - SVM                  -0.0102 [-0.027; +0.006]  inclui zero
+  Regressão Logística  - k-NN                 -0.0099 [-0.036; +0.015]  inclui zero
+  Árvore de Decisão    - Random Forest        -0.0435 [-0.075; -0.018]  EXCLUI ZERO
+  Árvore de Decisão    - SVM                  -0.0324 [-0.071; +0.005]  inclui zero
+  Árvore de Decisão    - k-NN                 -0.0321 [-0.071; +0.001]  inclui zero
+  Random Forest        - SVM                  +0.0111 [-0.006; +0.030]  inclui zero
+  Random Forest        - k-NN                 +0.0114 [-0.009; +0.032]  inclui zero
+  SVM                  - k-NN                 +0.0003 [-0.022; +0.021]  inclui zero
+
+--- (2) Limiar escolhido nas predicoes fora da dobra do TREINO, aplicado ao teste ---
+  Regressão Logística  padrao 0,5  limiar=0.500 revoc=0.843 espec=0.707 VP=86 FN=16 FP=24 VN=58 dFN=+0 dFP=+0
+  Regressão Logística  meta 90%    limiar=0.416 revoc=0.912 espec=0.659 VP=93 FN=9 FP=28 VN=54 dFN=-7 dFP=+4
+  Regressão Logística  meta 95%    limiar=0.291 revoc=0.961 espec=0.573 VP=98 FN=4 FP=35 VN=47 dFN=-12 dFP=+11
+  Árvore de Decisão    padrao 0,5  limiar=0.500 revoc=0.814 espec=0.659 VP=83 FN=19 FP=28 VN=54 dFN=+0 dFP=+0
+  Árvore de Decisão    meta 90%    limiar=0.286 revoc=0.931 espec=0.610 VP=95 FN=7 FP=32 VN=50 dFN=-12 dFP=+4
+  Árvore de Decisão    meta 95%    limiar=0.145 revoc=0.990 espec=0.317 VP=101 FN=1 FP=56 VN=26 dFN=-18 dFP=+28
+  Random Forest        padrao 0,5  limiar=0.500 revoc=0.882 espec=0.707 VP=90 FN=12 FP=24 VN=58 dFN=+0 dFP=+0
+  Random Forest        meta 90%    limiar=0.461 revoc=0.902 espec=0.695 VP=92 FN=10 FP=25 VN=57 dFN=-2 dFP=+1
+  Random Forest        meta 95%    limiar=0.362 revoc=0.971 espec=0.610 VP=99 FN=3 FP=32 VN=50 dFN=-9 dFP=+8
+  SVM                  padrao 0,5  limiar=0.500 revoc=0.882 espec=0.707 VP=90 FN=12 FP=24 VN=58 dFN=+0 dFP=+0
+  SVM                  meta 90%    limiar=0.429 revoc=0.941 espec=0.634 VP=96 FN=6 FP=30 VN=52 dFN=-6 dFP=+6
+  SVM                  meta 95%    limiar=0.264 revoc=0.971 espec=0.573 VP=99 FN=3 FP=35 VN=47 dFN=-9 dFP=+11
+  k-NN                 padrao 0,5  limiar=0.500 revoc=0.853 espec=0.720 VP=87 FN=15 FP=23 VN=59 dFN=+0 dFP=+0
+  k-NN                 meta 90%    limiar=0.429 revoc=0.892 espec=0.671 VP=91 FN=11 FP=27 VN=55 dFN=-4 dFP=+4
+  k-NN                 meta 95%    limiar=0.286 revoc=0.951 espec=0.585 VP=97 FN=5 FP=34 VN=48 dFN=-10 dFP=+11
+
+--- (4) Random Forest x SVM no teste (limiar 0,5) ---
+  Random Forest  VN=58 FP=24 FN=12 VP=90
+  SVM            VN=58 FP=24 FN=12 VP=90
+  predicoes diferentes: 4 de 184; correlacao das probabilidades = 0.974
+    registro 124 (Cleveland), real=1: RF=0 (p=0.4840)  SVM=1 (p=0.6575)
+    registro 820 (Long Beach VA), real=1: RF=0 (p=0.4116)  SVM=1 (p=0.5428)
+    registro 905 (Long Beach VA), real=1: RF=1 (p=0.5450)  SVM=0 (p=0.4995)
+    registro 284 (Cleveland), real=1: RF=1 (p=0.5281)  SVM=0 (p=0.3631)
+
+--- (6) Classificadores de referencia (DummyClassifier) no teste [IC 95%] ---
+  Classe majoritária: accuracy=0.5543 [0.484; 0.625]  precision=0.5543 [0.484; 0.625]  recall=1.0000 [1.000; 1.000]  specificity=0.0000 [0.000; 0.000]  f1=0.7133 [0.652; 0.769]  roc_auc=0.5000 [0.500; 0.500]
+  Estratificado: accuracy=0.5217 [0.451; 0.592]  precision=0.5636 [0.471; 0.650]  recall=0.6078 [0.505; 0.700]  specificity=0.4146 [0.305; 0.519]  f1=0.5849 [0.498; 0.658]  roc_auc=0.5112 [0.439; 0.580]
+  prevalencia no teste: 0.5543 (102 de 184)
+  prevalencia no conjunto completo: 0.5533
+
+--- (5) Hiperparametros: grade testada, escolhidos e parametros efetivos ---
+  Regressão Logística (LogisticRegression; 10 combinacoes): escolhidos {'C': 0.1, 'solver': 'lbfgs'}
+      efetivos: {'C': 0.1, 'class_weight': None, 'dual': False, 'fit_intercept': True, 'intercept_scaling': 1, 'l1_ratio': 0.0, 'max_iter': 1000, 'n_jobs': None, 'penalty': 'deprecated', 'random_state': 42, 'solver': 'lbfgs', 'tol': 0.0001, 'verbose': 0, 'warm_start': False}
+  Árvore de Decisão (DecisionTreeClassifier; 90 combinacoes): escolhidos {'criterion': 'entropy', 'max_depth': 3, 'min_samples_leaf': 1, 'min_samples_split': 2}
+      efetivos: {'ccp_alpha': 0.0, 'class_weight': None, 'criterion': 'entropy', 'max_depth': 3, 'max_features': None, 'max_leaf_nodes': None, 'min_impurity_decrease': 0.0, 'min_samples_leaf': 1, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'monotonic_cst': None, 'random_state': 42, 'splitter': 'best'}
+  Random Forest (RandomForestClassifier; 54 combinacoes): escolhidos {'max_depth': 5, 'max_features': 'sqrt', 'min_samples_leaf': 2, 'n_estimators': 200}
+      efetivos: {'bootstrap': True, 'ccp_alpha': 0.0, 'class_weight': None, 'criterion': 'gini', 'max_depth': 5, 'max_features': 'sqrt', 'max_leaf_nodes': None, 'max_samples': None, 'min_impurity_decrease': 0.0, 'min_samples_leaf': 2, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'monotonic_cst': None, 'n_estimators': 200, 'n_jobs': None, 'oob_score': False, 'random_state': 42, 'verbose': 0, 'warm_start': False}
+  SVM (CalibratedClassifierCV; 20 combinacoes): escolhidos {'C': 1, 'gamma': 'auto', 'kernel': 'rbf'}
+      efetivos: {'cv': None, 'ensemble': False, 'SVC.C': 1, 'SVC.break_ties': False, 'SVC.cache_size': 200, 'SVC.class_weight': None, 'SVC.coef0': 0.0, 'SVC.decision_function_shape': 'ovr', 'SVC.degree': 3, 'SVC.gamma': 'auto', 'SVC.kernel': 'rbf', 'SVC.max_iter': -1, 'SVC.probability': 'deprecated', 'SVC.random_state': None, 'SVC.shrinking': True, 'SVC.tol': 0.001, 'SVC.verbose': False, 'method': 'sigmoid', 'n_jobs': None}
+  k-NN (KNeighborsClassifier; 28 combinacoes): escolhidos {'metric': 'manhattan', 'n_neighbors': 15, 'weights': 'uniform'}
+      efetivos: {'algorithm': 'auto', 'leaf_size': 30, 'metric': 'manhattan', 'metric_params': None, 'n_jobs': None, 'n_neighbors': 15, 'p': 2, 'weights': 'uniform'}
+  busca: GridSearchCV, 5 dobras internas estratificadas, metrica roc_auc; validacao aninhada com 10 dobras externas; semente 42
+
+==============================================================================
+EXPERIMENTO COMPLEMENTAR A (Tabela 10): cenario com ca e thal mantidos e imputados
+==============================================================================
+Atributos (13): ['age', 'sex', 'cp', 'trestbps', 'chol', 'fbs', 'restecg', 'thalach', 'exang', 'oldpeak', 'slope', 'ca', 'thal']
+Modelo                      AUC CV sem      AUC CV com  AUC teste sem  AUC teste com
+Regressão Logística      0.8770 ±0.028   0.8790 ±0.025         0.8883         0.8929
+Árvore de Decisão        0.7999 ±0.038   0.8087 ±0.023         0.8661         0.8707
+Random Forest            0.8736 ±0.024   0.8830 ±0.026         0.9096         0.9157
+SVM                      0.8732 ±0.029   0.8828 ±0.023         0.8985         0.9026
+k-NN                     0.8573 ±0.037   0.8755 ±0.035         0.8982         0.9022
+
+Importancia por permutacao (Random Forest, cenario com ca e thal):
+   cp        0.1009
+   exang     0.0191
+   oldpeak   0.0175
+   sex       0.0131
+   thalach   0.0109
+   thal      0.0102
+
+==============================================================================
+EXPERIMENTO COMPLEMENTAR B (Tabela 11): validacao por hospital deixado de fora
+==============================================================================
+Atributos: os mesmos do experimento principal. Busca em grade com 5 dobras
+internas sobre as tres bases de treino; a quarta base e usada so para teste.
+Cleveland (n=303, positivos=139):
+   Regressão Logística    AUC=0.867 [0.826; 0.907] acuracia=0.772 revocacao=0.871 especificidade=0.689
+   Árvore de Decisão      AUC=0.771 [0.714; 0.824] acuracia=0.624 revocacao=0.835 especificidade=0.445
+   Random Forest          AUC=0.861 [0.818; 0.900] acuracia=0.746 revocacao=0.871 especificidade=0.640
+   SVM                    AUC=0.867 [0.823; 0.904] acuracia=0.729 revocacao=0.892 especificidade=0.591
+   k-NN                   AUC=0.846 [0.800; 0.890] acuracia=0.726 revocacao=0.878 especificidade=0.598
+Hungria (n=294, positivos=106):
+   Regressão Logística    AUC=0.894 [0.853; 0.931] acuracia=0.803 revocacao=0.896 especificidade=0.750
+   Árvore de Decisão      AUC=0.846 [0.795; 0.893] acuracia=0.656 revocacao=0.906 especificidade=0.516
+   Random Forest          AUC=0.877 [0.833; 0.915] acuracia=0.755 revocacao=0.906 especificidade=0.670
+   SVM                    AUC=0.867 [0.821; 0.907] acuracia=0.752 revocacao=0.887 especificidade=0.676
+   k-NN                   AUC=0.879 [0.835; 0.917] acuracia=0.728 revocacao=0.943 especificidade=0.606
+Suica (n=123, positivos=115):
+   Regressão Logística    AUC=0.748 [0.521; 0.952] acuracia=0.699 revocacao=0.704 especificidade=0.625
+   Árvore de Decisão      AUC=0.627 [0.469; 0.794] acuracia=0.577 revocacao=0.591 especificidade=0.375
+   Random Forest          AUC=0.758 [0.497; 0.977] acuracia=0.691 revocacao=0.696 especificidade=0.625
+   SVM                    AUC=0.762 [0.539; 0.962] acuracia=0.691 revocacao=0.696 especificidade=0.625
+   k-NN                   AUC=0.796 [0.571; 0.962] acuracia=0.764 revocacao=0.774 especificidade=0.625
+Long Beach VA (n=200, positivos=149):
+   Regressão Logística    AUC=0.747 [0.660; 0.824] acuracia=0.750 revocacao=0.866 especificidade=0.412
+   Árvore de Decisão      AUC=0.679 [0.599; 0.758] acuracia=0.680 revocacao=0.779 especificidade=0.392
+   Random Forest          AUC=0.731 [0.642; 0.818] acuracia=0.755 revocacao=0.866 especificidade=0.431
+   SVM                    AUC=0.747 [0.670; 0.821] acuracia=0.740 revocacao=0.839 especificidade=0.451
+   k-NN                   AUC=0.724 [0.635; 0.811] acuracia=0.750 revocacao=0.852 especificidade=0.451
+
+Tempo total: 501 s

@@ -1,0 +1,2253 @@
+{
+ "ambiente": {
+  "versoes": {
+   "Python": "3.14.4",
+   "pandas": "3.0.3",
+   "NumPy": "2.4.4",
+   "scikit-learn": "1.9.1",
+   "Matplotlib": "3.11.2",
+   "seaborn": "0.13.2",
+   "SciPy": "1.18.1"
+  },
+  "hardware": {
+   "sistema": "Windows-11-10.0.26300-SP0",
+   "processador": "AMD Ryzen 7 5700X3D 8-Core Processor",
+   "nucleos_logicos": 16,
+   "memoria_gb": 15.9
+  },
+  "semente": 42
+ },
+ "exploratoria": {
+  "tabela1": {
+   "Cleveland": {
+    "registros": 303,
+    "classe0": 164,
+    "classe1": 139,
+    "pct1": 45.87458745874587
+   },
+   "Hungria": {
+    "registros": 294,
+    "classe0": 188,
+    "classe1": 106,
+    "pct1": 36.054421768707485
+   },
+   "Suica": {
+    "registros": 123,
+    "classe0": 8,
+    "classe1": 115,
+    "pct1": 93.4959349593496
+   },
+   "Long Beach VA": {
+    "registros": 200,
+    "classe0": 51,
+    "classe1": 149,
+    "pct1": 74.5
+   },
+   "Total": {
+    "registros": 920,
+    "classe0": 411,
+    "classe1": 509,
+    "pct1": 55.32608695652174
+   }
+  },
+  "tabela2": {
+   "age": {
+    "Cleveland": 0.0,
+    "Hungria": 0.0,
+    "Suica": 0.0,
+    "Long Beach VA": 0.0,
+    "Total": 0.0
+   },
+   "sex": {
+    "Cleveland": 0.0,
+    "Hungria": 0.0,
+    "Suica": 0.0,
+    "Long Beach VA": 0.0,
+    "Total": 0.0
+   },
+   "cp": {
+    "Cleveland": 0.0,
+    "Hungria": 0.0,
+    "Suica": 0.0,
+    "Long Beach VA": 0.0,
+    "Total": 0.0
+   },
+   "trestbps": {
+    "Cleveland": 0.0,
+    "Hungria": 0.3401360544217687,
+    "Suica": 1.6260162601626018,
+    "Long Beach VA": 28.499999999999996,
+    "Total": 6.521739130434782
+   },
+   "chol": {
+    "Cleveland": 0.0,
+    "Hungria": 7.8231292517006805,
+    "Suica": 100.0,
+    "Long Beach VA": 28.000000000000004,
+    "Total": 21.956521739130437
+   },
+   "fbs": {
+    "Cleveland": 0.0,
+    "Hungria": 2.7210884353741496,
+    "Suica": 60.97560975609756,
+    "Long Beach VA": 3.5000000000000004,
+    "Total": 9.782608695652174
+   },
+   "restecg": {
+    "Cleveland": 0.0,
+    "Hungria": 0.3401360544217687,
+    "Suica": 0.8130081300813009,
+    "Long Beach VA": 0.0,
+    "Total": 0.21739130434782608
+   },
+   "thalach": {
+    "Cleveland": 0.0,
+    "Hungria": 0.3401360544217687,
+    "Suica": 0.8130081300813009,
+    "Long Beach VA": 26.5,
+    "Total": 5.978260869565218
+   },
+   "exang": {
+    "Cleveland": 0.0,
+    "Hungria": 0.3401360544217687,
+    "Suica": 0.8130081300813009,
+    "Long Beach VA": 26.5,
+    "Total": 5.978260869565218
+   },
+   "oldpeak": {
+    "Cleveland": 0.0,
+    "Hungria": 0.0,
+    "Suica": 4.878048780487805,
+    "Long Beach VA": 28.000000000000004,
+    "Total": 6.739130434782608
+   },
+   "slope": {
+    "Cleveland": 0.0,
+    "Hungria": 64.62585034013605,
+    "Suica": 13.821138211382115,
+    "Long Beach VA": 51.0,
+    "Total": 33.58695652173913
+   },
+   "ca": {
+    "Cleveland": 1.3201320132013201,
+    "Hungria": 98.9795918367347,
+    "Suica": 95.9349593495935,
+    "Long Beach VA": 99.0,
+    "Total": 66.41304347826087
+   },
+   "thal": {
+    "Cleveland": 0.6600660066006601,
+    "Hungria": 90.47619047619048,
+    "Suica": 42.27642276422765,
+    "Long Beach VA": 83.0,
+    "Total": 52.826086956521735
+   }
+  },
+  "tabela3": {
+   "age": {
+    "media": 53.51086956521739,
+    "dp": 9.424685209576857,
+    "min": 28.0,
+    "mediana": 54.0,
+    "max": 77.0,
+    "n": 920,
+    "assimetria": -0.19567416156265732
+   },
+   "trestbps": {
+    "media": 132.28604651162792,
+    "dp": 18.53617526438666,
+    "min": 80.0,
+    "mediana": 130.0,
+    "max": 200.0,
+    "n": 860,
+    "assimetria": 0.6290592677780329
+   },
+   "chol": {
+    "media": 246.83286908077994,
+    "dp": 58.52706158387357,
+    "min": 85.0,
+    "mediana": 239.5,
+    "max": 603.0,
+    "n": 718,
+    "assimetria": 1.3121183258462585
+   },
+   "thalach": {
+    "media": 137.5456647398844,
+    "dp": 25.926276492797594,
+    "min": 60.0,
+    "mediana": 140.0,
+    "max": 202.0,
+    "n": 865,
+    "assimetria": -0.21075230265417325
+   },
+   "oldpeak": {
+    "media": 0.8787878787878788,
+    "dp": 1.0912262483465298,
+    "min": -2.6,
+    "mediana": 0.5,
+    "max": 6.2,
+    "n": 858,
+    "assimetria": 1.0396050538456332
+   },
+   "ca": {
+    "media": 0.6763754045307443,
+    "dp": 0.935653012559987,
+    "min": 0.0,
+    "mediana": 0.0,
+    "max": 3.0,
+    "n": 309,
+    "assimetria": 1.1603101290932978
+   }
+  },
+  "chol_ausente": {
+   "pct_pos_ausente": 80.6930693069307,
+   "n_ausente": 202,
+   "pct_pos_presente": 48.18941504178273,
+   "n_presente": 718,
+   "n_acima_400": 13
+  }
+ },
+ "preprocessamento": {
+  "n_treino": 736,
+  "n_teste": 184,
+  "usados": [
+   "age",
+   "sex",
+   "cp",
+   "trestbps",
+   "chol",
+   "fbs",
+   "restecg",
+   "thalach",
+   "exang",
+   "oldpeak",
+   "slope"
+  ],
+  "descartados": [
+   "ca",
+   "thal"
+  ],
+  "ausencia_treino": {
+   "age": 0.0,
+   "sex": 0.0,
+   "cp": 0.0,
+   "trestbps": 6.7934782608695645,
+   "chol": 21.603260869565215,
+   "fbs": 9.239130434782608,
+   "restecg": 0.0,
+   "thalach": 6.385869565217392,
+   "exang": 6.385869565217392,
+   "oldpeak": 7.065217391304348,
+   "slope": 32.744565217391305,
+   "ca": 65.89673913043478,
+   "thal": 51.766304347826086
+  },
+  "teste_por_base": {
+   "Cleveland": 55,
+   "Hungria": 64,
+   "Suica": 28,
+   "Long Beach VA": 37
+  }
+ },
+ "modelos": {
+  "melhor": "Regressão Logística",
+  "tabela4": {
+   "Regressão Logística": {
+    "params": {
+     "C": 0.1,
+     "solver": "lbfgs"
+    },
+    "auc_interna": 0.87243755040503
+   },
+   "Árvore de Decisão": {
+    "params": {
+     "criterion": "entropy",
+     "max_depth": 3,
+     "min_samples_leaf": 1,
+     "min_samples_split": 2
+    },
+    "auc_interna": 0.7923617419416877
+   },
+   "Random Forest": {
+    "params": {
+     "max_depth": 5,
+     "max_features": "sqrt",
+     "min_samples_leaf": 2,
+     "n_estimators": 200
+    },
+    "auc_interna": 0.8699169514616669
+   },
+   "SVM": {
+    "params": {
+     "C": 1,
+     "gamma": "auto",
+     "kernel": "rbf"
+    },
+    "auc_interna": 0.8728208988642592
+   },
+   "k-NN": {
+    "params": {
+     "metric": "manhattan",
+     "n_neighbors": 15,
+     "weights": "uniform"
+    },
+    "auc_interna": 0.8665455928193054
+   }
+  },
+  "estabilidade": {
+   "Regressão Logística": [
+    "{\"C\": 0.1, \"solver\": \"lbfgs\"}",
+    "{\"C\": 0.1, \"solver\": \"lbfgs\"}",
+    "{\"C\": 0.1, \"solver\": \"lbfgs\"}",
+    "{\"C\": 1, \"solver\": \"liblinear\"}",
+    "{\"C\": 0.1, \"solver\": \"lbfgs\"}",
+    "{\"C\": 1, \"solver\": \"liblinear\"}",
+    "{\"C\": 0.1, \"solver\": \"lbfgs\"}",
+    "{\"C\": 0.1, \"solver\": \"lbfgs\"}",
+    "{\"C\": 1, \"solver\": \"lbfgs\"}",
+    "{\"C\": 0.1, \"solver\": \"lbfgs\"}"
+   ],
+   "Árvore de Decisão": [
+    "{\"criterion\": \"gini\", \"max_depth\": 5, \"min_samples_leaf\": 1, \"min_samples_split\": 10}",
+    "{\"criterion\": \"gini\", \"max_depth\": 3, \"min_samples_leaf\": 5, \"min_samples_split\": 2}",
+    "{\"criterion\": \"entropy\", \"max_depth\": 5, \"min_samples_leaf\": 1, \"min_samples_split\": 10}",
+    "{\"criterion\": \"entropy\", \"max_depth\": 3, \"min_samples_leaf\": 5, \"min_samples_split\": 2}",
+    "{\"criterion\": \"gini\", \"max_depth\": 3, \"min_samples_leaf\": 1, \"min_samples_split\": 2}",
+    "{\"criterion\": \"entropy\", \"max_depth\": 5, \"min_samples_leaf\": 5, \"min_samples_split\": 2}",
+    "{\"criterion\": \"gini\", \"max_depth\": 3, \"min_samples_leaf\": 1, \"min_samples_split\": 2}",
+    "{\"criterion\": \"gini\", \"max_depth\": 5, \"min_samples_leaf\": 1, \"min_samples_split\": 10}",
+    "{\"criterion\": \"gini\", \"max_depth\": 3, \"min_samples_leaf\": 5, \"min_samples_split\": 2}",
+    "{\"criterion\": \"entropy\", \"max_depth\": 3, \"min_samples_leaf\": 1, \"min_samples_split\": 2}"
+   ],
+   "Random Forest": [
+    "{\"max_depth\": 5, \"max_features\": \"sqrt\", \"min_samples_leaf\": 1, \"n_estimators\": 200}",
+    "{\"max_depth\": 5, \"max_features\": \"sqrt\", \"min_samples_leaf\": 1, \"n_estimators\": 100}",
+    "{\"max_depth\": 5, \"max_features\": \"sqrt\", \"min_samples_leaf\": 1, \"n_estimators\": 100}",
+    "{\"max_depth\": 5, \"max_features\": \"sqrt\", \"min_samples_leaf\": 2, \"n_estimators\": 500}",
+    "{\"max_depth\": 5, \"max_features\": \"sqrt\", \"min_samples_leaf\": 2, \"n_estimators\": 500}",
+    "{\"max_depth\": 5, \"max_features\": \"sqrt\", \"min_samples_leaf\": 4, \"n_estimators\": 200}",
+    "{\"max_depth\": 5, \"max_features\": \"sqrt\", \"min_samples_leaf\": 1, \"n_estimators\": 500}",
+    "{\"max_depth\": 5, \"max_features\": \"sqrt\", \"min_samples_leaf\": 2, \"n_estimators\": 200}",
+    "{\"max_depth\": 10, \"max_features\": \"sqrt\", \"min_samples_leaf\": 4, \"n_estimators\": 200}",
+    "{\"max_depth\": 5, \"max_features\": \"sqrt\", \"min_samples_leaf\": 1, \"n_estimators\": 500}"
+   ],
+   "SVM": [
+    "{\"C\": 1, \"gamma\": \"auto\", \"kernel\": \"rbf\"}",
+    "{\"C\": 1, \"gamma\": \"auto\", \"kernel\": \"rbf\"}",
+    "{\"C\": 1, \"gamma\": \"auto\", \"kernel\": \"rbf\"}",
+    "{\"C\": 100, \"kernel\": \"linear\"}",
+    "{\"C\": 1, \"gamma\": 0.01, \"kernel\": \"rbf\"}",
+    "{\"C\": 0.1, \"kernel\": \"linear\"}",
+    "{\"C\": 1, \"gamma\": \"auto\", \"kernel\": \"rbf\"}",
+    "{\"C\": 1, \"gamma\": \"auto\", \"kernel\": \"rbf\"}",
+    "{\"C\": 10, \"gamma\": 0.01, \"kernel\": \"rbf\"}",
+    "{\"C\": 100, \"gamma\": 0.01, \"kernel\": \"rbf\"}"
+   ],
+   "k-NN": [
+    "{\"metric\": \"euclidean\", \"n_neighbors\": 21, \"weights\": \"distance\"}",
+    "{\"metric\": \"euclidean\", \"n_neighbors\": 21, \"weights\": \"distance\"}",
+    "{\"metric\": \"manhattan\", \"n_neighbors\": 21, \"weights\": \"uniform\"}",
+    "{\"metric\": \"manhattan\", \"n_neighbors\": 21, \"weights\": \"uniform\"}",
+    "{\"metric\": \"euclidean\", \"n_neighbors\": 21, \"weights\": \"uniform\"}",
+    "{\"metric\": \"manhattan\", \"n_neighbors\": 15, \"weights\": \"distance\"}",
+    "{\"metric\": \"manhattan\", \"n_neighbors\": 21, \"weights\": \"uniform\"}",
+    "{\"metric\": \"euclidean\", \"n_neighbors\": 21, \"weights\": \"distance\"}",
+    "{\"metric\": \"manhattan\", \"n_neighbors\": 21, \"weights\": \"uniform\"}",
+    "{\"metric\": \"manhattan\", \"n_neighbors\": 21, \"weights\": \"uniform\"}"
+   ]
+  },
+  "tabela5": {
+   "Regressão Logística": {
+    "accuracy": [
+     0.7948352462051093,
+     0.026800904474418734
+    ],
+    "precision": [
+     0.8060351733515144,
+     0.040615349904577554
+    ],
+    "recall": [
+     0.8347560975609756,
+     0.07038709152382011
+    ],
+    "specificity": [
+     0.7447916666666667,
+     0.08007719324778764
+    ],
+    "f1": [
+     0.817201119191334,
+     0.028253895457478216
+    ],
+    "roc_auc": [
+     0.8770145048041389,
+     0.02822199404021185
+    ]
+   },
+   "Árvore de Decisão": {
+    "accuracy": [
+     0.7350796001480934,
+     0.045282072707827595
+    ],
+    "precision": [
+     0.7494581722921357,
+     0.05924363491722463
+    ],
+    "recall": [
+     0.798109756097561,
+     0.07185889591463394
+    ],
+    "specificity": [
+     0.656344696969697,
+     0.12771560216866565
+    ],
+    "f1": [
+     0.768858835604759,
+     0.03750610721206341
+    ],
+    "roc_auc": [
+     0.7998782797487065,
+     0.03817296201567076
+    ]
+   },
+   "Random Forest": {
+    "accuracy": [
+     0.7990003702332469,
+     0.055314990638202825
+    ],
+    "precision": [
+     0.7944129868396397,
+     0.06220790714271197
+    ],
+    "recall": [
+     0.866890243902439,
+     0.05316992755041929
+    ],
+    "specificity": [
+     0.7145833333333333,
+     0.10890415016574967
+    ],
+    "f1": [
+     0.8272234451386158,
+     0.04452712467203995
+    ],
+    "roc_auc": [
+     0.8735749260901701,
+     0.02427330144096519
+    ]
+   },
+   "SVM": {
+    "accuracy": [
+     0.7963161791928915,
+     0.03635768244466446
+    ],
+    "precision": [
+     0.7983205182127066,
+     0.0444267991770854
+    ],
+    "recall": [
+     0.8499390243902439,
+     0.05116754768163633
+    ],
+    "specificity": [
+     0.7296401515151516,
+     0.07672821604466439
+    ],
+    "f1": [
+     0.8218002018382492,
+     0.03168015243181742
+    ],
+    "roc_auc": [
+     0.8731910569105692,
+     0.028974548713307204
+    ]
+   },
+   "k-NN": {
+    "accuracy": [
+     0.7949278045168456,
+     0.049049394271485795
+    ],
+    "precision": [
+     0.7893191217319884,
+     0.05535528096785287
+    ],
+    "recall": [
+     0.8670121951219512,
+     0.06095026912463356
+    ],
+    "specificity": [
+     0.7052083333333333,
+     0.10747004682590053
+    ],
+    "f1": [
+     0.8239657422857449,
+     0.03939755035571077
+    ],
+    "roc_auc": [
+     0.8573032150776054,
+     0.03657386865388807
+    ]
+   }
+  },
+  "tabela6": {
+   "Regressão Logística": {
+    "accuracy": 0.782608695652174,
+    "precision": 0.7818181818181819,
+    "recall": 0.8431372549019608,
+    "specificity": 0.7073170731707317,
+    "f1": 0.8113207547169811,
+    "roc_auc": 0.8883309421329507
+   },
+   "Árvore de Decisão": {
+    "accuracy": 0.7445652173913043,
+    "precision": 0.7477477477477478,
+    "recall": 0.8137254901960784,
+    "specificity": 0.6585365853658537,
+    "f1": 0.7793427230046949,
+    "roc_auc": 0.8660927785748446
+   },
+   "Random Forest": {
+    "accuracy": 0.8043478260869565,
+    "precision": 0.7894736842105263,
+    "recall": 0.8823529411764706,
+    "specificity": 0.7073170731707317,
+    "f1": 0.8333333333333333,
+    "roc_auc": 0.9096126255380201
+   },
+   "SVM": {
+    "accuracy": 0.8043478260869565,
+    "precision": 0.7894736842105263,
+    "recall": 0.8823529411764706,
+    "specificity": 0.7073170731707317,
+    "f1": 0.8333333333333333,
+    "roc_auc": 0.898493543758967
+   },
+   "k-NN": {
+    "accuracy": 0.7934782608695652,
+    "precision": 0.7909090909090909,
+    "recall": 0.8529411764705882,
+    "specificity": 0.7195121951219512,
+    "f1": 0.820754716981132,
+    "roc_auc": 0.898194643711143
+   }
+  },
+  "tabela6_ic": {
+   "Regressão Logística": {
+    "accuracy": [
+     0.7226902173913043,
+     0.842391304347826
+    ],
+    "precision": [
+     0.7,
+     0.8584091668058107
+    ],
+    "recall": [
+     0.7722772277227723,
+     0.912621359223301
+    ],
+    "specificity": [
+     0.6049310938845823,
+     0.8048859676908457
+    ],
+    "f1": [
+     0.7513201703445606,
+     0.8663671274961597
+    ],
+    "roc_auc": [
+     0.8404064547984558,
+     0.9308895452235773
+    ]
+   },
+   "Árvore de Decisão": {
+    "accuracy": [
+     0.6793478260869565,
+     0.8043478260869565
+    ],
+    "precision": [
+     0.6608695652173913,
+     0.826095939633489
+    ],
+    "recall": [
+     0.7368301435406698,
+     0.8888888888888888
+    ],
+    "specificity": [
+     0.548376049491825,
+     0.7619047619047619
+    ],
+    "f1": [
+     0.7121951219512195,
+     0.8376068376068375
+    ],
+    "roc_auc": [
+     0.8117511794817108,
+     0.9129681548287129
+    ]
+   },
+   "Random Forest": {
+    "accuracy": [
+     0.7445652173913043,
+     0.8586956521739131
+    ],
+    "precision": [
+     0.7117117117117117,
+     0.8666666666666667
+    ],
+    "recall": [
+     0.82,
+     0.9423076923076923
+    ],
+    "specificity": [
+     0.6067046126552337,
+     0.8028614214019749
+    ],
+    "f1": [
+     0.7793303087757313,
+     0.8823598453465894
+    ],
+    "roc_auc": [
+     0.8675571653189578,
+     0.9463086488969781
+    ]
+   },
+   "SVM": {
+    "accuracy": [
+     0.7445652173913043,
+     0.8586956521739131
+    ],
+    "precision": [
+     0.7107438016528925,
+     0.8655593487394958
+    ],
+    "recall": [
+     0.8198198198198198,
+     0.94
+    ],
+    "specificity": [
+     0.6067046126552337,
+     0.8028614214019749
+    ],
+    "f1": [
+     0.7766879460921222,
+     0.8823661897191309
+    ],
+    "roc_auc": [
+     0.8510424584585372,
+     0.9383415280963303
+    ]
+   },
+   "k-NN": {
+    "accuracy": [
+     0.7336956521739131,
+     0.8532608695652174
+    ],
+    "precision": [
+     0.7117073804573804,
+     0.8650869963369964
+    ],
+    "recall": [
+     0.782608695652174,
+     0.9166666666666666
+    ],
+    "specificity": [
+     0.6233477633477633,
+     0.8115984654731458
+    ],
+    "f1": [
+     0.7628865979381444,
+     0.8761061946902655
+    ],
+    "roc_auc": [
+     0.8544047584872513,
+     0.9383238108209693
+    ]
+   }
+  },
+  "tabela7": {
+   "vn": 58,
+   "fp": 24,
+   "fn": 16,
+   "vp": 86
+  },
+  "diferencas_auc": {
+   "Árvore de Decisão": [
+    0.02223816355810615,
+    -0.011683007845643379,
+    0.058747627383838
+   ],
+   "Random Forest": [
+    -0.021281683405069418,
+    -0.04151574721728188,
+    -0.004086001016260096
+   ],
+   "SVM": [
+    -0.010162601626016232,
+    -0.027442782903378902,
+    0.005800322540077895
+   ],
+   "k-NN": [
+    -0.009863701578192274,
+    -0.03636736399741753,
+    0.014672305907363098
+   ]
+  },
+  "limiares": {
+   "0.9": {
+    "limiar": 0.4161899636037189,
+    "accuracy": 0.7989130434782609,
+    "precision": 0.768595041322314,
+    "recall": 0.9117647058823529,
+    "specificity": 0.6585365853658537,
+    "roc_auc": 0.8883309421329507,
+    "vn": 54.0,
+    "fp": 28.0,
+    "fn": 9.0,
+    "vp": 93.0,
+    "f1": 0.8340807174887892
+   },
+   "0.95": {
+    "limiar": 0.29116548944812914,
+    "accuracy": 0.7880434782608695,
+    "precision": 0.7368421052631579,
+    "recall": 0.9607843137254902,
+    "specificity": 0.573170731707317,
+    "roc_auc": 0.8883309421329507,
+    "vn": 47.0,
+    "fp": 35.0,
+    "fn": 4.0,
+    "vp": 98.0,
+    "f1": 0.8340425531914895
+   }
+  },
+  "por_base": {
+   "Regressão Logística": {
+    "Cleveland": {
+     "accuracy": 0.8,
+     "precision": 0.7419354838709677,
+     "recall": 0.8846153846153846,
+     "specificity": 0.7241379310344828,
+     "roc_auc": 0.9257294429708223,
+     "vn": 21.0,
+     "fp": 8.0,
+     "fn": 3.0,
+     "vp": 23.0,
+     "f1": 0.8070175438596492,
+     "n": 55.0,
+     "positivos": 26.0
+    },
+    "Hungria": {
+     "accuracy": 0.8125,
+     "precision": 0.7083333333333334,
+     "recall": 0.7727272727272727,
+     "specificity": 0.8333333333333334,
+     "roc_auc": 0.9112554112554113,
+     "vn": 35.0,
+     "fp": 7.0,
+     "fn": 5.0,
+     "vp": 17.0,
+     "f1": 0.7391304347826088,
+     "n": 64.0,
+     "positivos": 22.0
+    },
+    "Suica": {
+     "accuracy": 0.7142857142857143,
+     "precision": 0.9523809523809523,
+     "recall": 0.7407407407407407,
+     "specificity": 0.0,
+     "roc_auc": 0.4074074074074074,
+     "vn": 0.0,
+     "fp": 1.0,
+     "fn": 7.0,
+     "vp": 20.0,
+     "f1": 0.8333333333333334,
+     "n": 28.0,
+     "positivos": 27.0
+    },
+    "Long Beach VA": {
+     "accuracy": 0.7567567567567568,
+     "precision": 0.7647058823529411,
+     "recall": 0.9629629629629629,
+     "specificity": 0.2,
+     "roc_auc": 0.7592592592592593,
+     "vn": 2.0,
+     "fp": 8.0,
+     "fn": 1.0,
+     "vp": 26.0,
+     "f1": 0.8524590163934426,
+     "n": 37.0,
+     "positivos": 27.0
+    }
+   },
+   "Árvore de Decisão": {
+    "Cleveland": {
+     "accuracy": 0.7636363636363637,
+     "precision": 0.696969696969697,
+     "recall": 0.8846153846153846,
+     "specificity": 0.6551724137931034,
+     "roc_auc": 0.8839522546419099,
+     "vn": 19.0,
+     "fp": 10.0,
+     "fn": 3.0,
+     "vp": 23.0,
+     "f1": 0.7796610169491526,
+     "n": 55.0,
+     "positivos": 26.0
+    },
+    "Hungria": {
+     "accuracy": 0.734375,
+     "precision": 0.6190476190476191,
+     "recall": 0.5909090909090909,
+     "specificity": 0.8095238095238095,
+     "roc_auc": 0.8582251082251082,
+     "vn": 34.0,
+     "fp": 8.0,
+     "fn": 9.0,
+     "vp": 13.0,
+     "f1": 0.6046511627906977,
+     "n": 64.0,
+     "positivos": 22.0
+    },
+    "Suica": {
+     "accuracy": 0.7857142857142857,
+     "precision": 0.9565217391304348,
+     "recall": 0.8148148148148148,
+     "specificity": 0.0,
+     "roc_auc": 0.8148148148148148,
+     "vn": 0.0,
+     "fp": 1.0,
+     "fn": 5.0,
+     "vp": 22.0,
+     "f1": 0.8800000000000001,
+     "n": 28.0,
+     "positivos": 27.0
+    },
+    "Long Beach VA": {
+     "accuracy": 0.7027027027027027,
+     "precision": 0.7352941176470589,
+     "recall": 0.9259259259259259,
+     "specificity": 0.1,
+     "roc_auc": 0.7462962962962962,
+     "vn": 1.0,
+     "fp": 9.0,
+     "fn": 2.0,
+     "vp": 25.0,
+     "f1": 0.819672131147541,
+     "n": 37.0,
+     "positivos": 27.0
+    }
+   },
+   "Random Forest": {
+    "Cleveland": {
+     "accuracy": 0.8,
+     "precision": 0.7419354838709677,
+     "recall": 0.8846153846153846,
+     "specificity": 0.7241379310344828,
+     "roc_auc": 0.9244031830238727,
+     "vn": 21.0,
+     "fp": 8.0,
+     "fn": 3.0,
+     "vp": 23.0,
+     "f1": 0.8070175438596492,
+     "n": 55.0,
+     "positivos": 26.0
+    },
+    "Hungria": {
+     "accuracy": 0.828125,
+     "precision": 0.72,
+     "recall": 0.8181818181818182,
+     "specificity": 0.8333333333333334,
+     "roc_auc": 0.9166666666666666,
+     "vn": 35.0,
+     "fp": 7.0,
+     "fn": 4.0,
+     "vp": 18.0,
+     "f1": 0.7659574468085107,
+     "n": 64.0,
+     "positivos": 22.0
+    },
+    "Suica": {
+     "accuracy": 0.8571428571428571,
+     "precision": 0.96,
+     "recall": 0.8888888888888888,
+     "specificity": 0.0,
+     "roc_auc": 0.7037037037037037,
+     "vn": 0.0,
+     "fp": 1.0,
+     "fn": 3.0,
+     "vp": 24.0,
+     "f1": 0.923076923076923,
+     "n": 28.0,
+     "positivos": 27.0
+    },
+    "Long Beach VA": {
+     "accuracy": 0.7297297297297297,
+     "precision": 0.7575757575757576,
+     "recall": 0.9259259259259259,
+     "specificity": 0.2,
+     "roc_auc": 0.8148148148148149,
+     "vn": 2.0,
+     "fp": 8.0,
+     "fn": 2.0,
+     "vp": 25.0,
+     "f1": 0.8333333333333334,
+     "n": 37.0,
+     "positivos": 27.0
+    }
+   },
+   "SVM": {
+    "Cleveland": {
+     "accuracy": 0.8,
+     "precision": 0.7419354838709677,
+     "recall": 0.8846153846153846,
+     "specificity": 0.7241379310344828,
+     "roc_auc": 0.9323607427055703,
+     "vn": 21.0,
+     "fp": 8.0,
+     "fn": 3.0,
+     "vp": 23.0,
+     "f1": 0.8070175438596492,
+     "n": 55.0,
+     "positivos": 26.0
+    },
+    "Hungria": {
+     "accuracy": 0.828125,
+     "precision": 0.72,
+     "recall": 0.8181818181818182,
+     "specificity": 0.8333333333333334,
+     "roc_auc": 0.9134199134199135,
+     "vn": 35.0,
+     "fp": 7.0,
+     "fn": 4.0,
+     "vp": 18.0,
+     "f1": 0.7659574468085107,
+     "n": 64.0,
+     "positivos": 22.0
+    },
+    "Suica": {
+     "accuracy": 0.8571428571428571,
+     "precision": 0.96,
+     "recall": 0.8888888888888888,
+     "specificity": 0.0,
+     "roc_auc": 0.2962962962962963,
+     "vn": 0.0,
+     "fp": 1.0,
+     "fn": 3.0,
+     "vp": 24.0,
+     "f1": 0.923076923076923,
+     "n": 28.0,
+     "positivos": 27.0
+    },
+    "Long Beach VA": {
+     "accuracy": 0.7297297297297297,
+     "precision": 0.7575757575757576,
+     "recall": 0.9259259259259259,
+     "specificity": 0.2,
+     "roc_auc": 0.762962962962963,
+     "vn": 2.0,
+     "fp": 8.0,
+     "fn": 2.0,
+     "vp": 25.0,
+     "f1": 0.8333333333333334,
+     "n": 37.0,
+     "positivos": 27.0
+    }
+   },
+   "k-NN": {
+    "Cleveland": {
+     "accuracy": 0.7818181818181819,
+     "precision": 0.7333333333333333,
+     "recall": 0.8461538461538461,
+     "specificity": 0.7241379310344828,
+     "roc_auc": 0.9210875331564987,
+     "vn": 21.0,
+     "fp": 8.0,
+     "fn": 4.0,
+     "vp": 22.0,
+     "f1": 0.7857142857142856,
+     "n": 55.0,
+     "positivos": 26.0
+    },
+    "Hungria": {
+     "accuracy": 0.8125,
+     "precision": 0.6923076923076923,
+     "recall": 0.8181818181818182,
+     "specificity": 0.8095238095238095,
+     "roc_auc": 0.8933982683982684,
+     "vn": 34.0,
+     "fp": 8.0,
+     "fn": 4.0,
+     "vp": 18.0,
+     "f1": 0.7500000000000001,
+     "n": 64.0,
+     "positivos": 22.0
+    },
+    "Suica": {
+     "accuracy": 0.8571428571428571,
+     "precision": 0.96,
+     "recall": 0.8888888888888888,
+     "specificity": 0.0,
+     "roc_auc": 0.6296296296296295,
+     "vn": 0.0,
+     "fp": 1.0,
+     "fn": 3.0,
+     "vp": 24.0,
+     "f1": 0.923076923076923,
+     "n": 28.0,
+     "positivos": 27.0
+    },
+    "Long Beach VA": {
+     "accuracy": 0.7297297297297297,
+     "precision": 0.7931034482758621,
+     "recall": 0.8518518518518519,
+     "specificity": 0.4,
+     "roc_auc": 0.774074074074074,
+     "vn": 4.0,
+     "fp": 6.0,
+     "fn": 4.0,
+     "vp": 23.0,
+     "f1": 0.8214285714285715,
+     "n": 37.0,
+     "positivos": 27.0
+    }
+   }
+  },
+  "tabela8_rf": {
+   "cp": [
+    0.11377729953770133,
+    0.027036985316651
+   ],
+   "oldpeak": [
+    0.02194723417822422,
+    0.009084761757500528
+   ],
+   "exang": [
+    0.021405228758169987,
+    0.00939534263608719
+   ],
+   "sex": [
+    0.013099792762633582,
+    0.005904028485679547
+   ],
+   "thalach": [
+    0.009210106806950486,
+    0.0067832784242042
+   ],
+   "chol": [
+    0.0042603220149848966,
+    0.003563006701605151
+   ],
+   "age": [
+    0.0016300015941336343,
+    0.005998171243132019
+   ],
+   "trestbps": [
+    0.0014666029013231997,
+    0.001455798368968426
+   ],
+   "slope": [
+    0.0006854774430097706,
+    0.0022663764204284113
+   ],
+   "fbs": [
+    0.0005141080822573474,
+    0.001301008597133554
+   ],
+   "restecg": [
+    -0.0006934481109516332,
+    0.001589563831144922
+   ]
+  },
+  "importancia_melhor": {
+   "cp": [
+    0.093384345608162,
+    0.02245626455773923
+   ],
+   "oldpeak": [
+    0.03567272437430257,
+    0.012292975012699024
+   ],
+   "sex": [
+    0.024175035868005724,
+    0.0070879632447809655
+   ],
+   "exang": [
+    0.018412242945958873,
+    0.007238007276556972
+   ],
+   "thalach": [
+    0.01321536744779213,
+    0.008527556842728283
+   ],
+   "fbs": [
+    0.0014705882352941198,
+    0.0016445914144716527
+   ],
+   "slope": [
+    0.0007412721186035383,
+    0.0027582542191813596
+   ],
+   "trestbps": [
+    -0.00031882671767894386,
+    0.00036308120433382635
+   ],
+   "chol": [
+    -0.0013749402199904467,
+    0.0034396110505310537
+   ],
+   "age": [
+    -0.0029611031404431663,
+    0.0076872340329657025
+   ],
+   "restecg": [
+    -0.005531643551729622,
+    0.0025292776909712203
+   ]
+  },
+  "mdi_rf": {
+   "cp": 0.32171990391929134,
+   "exang": 0.1431304568481646,
+   "oldpeak": 0.12379969066472951,
+   "thalach": 0.10855693969212428,
+   "age": 0.10103058404477692,
+   "chol": 0.05800636845684628,
+   "sex": 0.05706129985677497,
+   "trestbps": 0.03319326487645134,
+   "slope": 0.02392979547945987,
+   "restecg": 0.02161070544358351,
+   "fbs": 0.007960990717797331
+  }
+ },
+ "revisao": {
+  "diferencas_pareadas_auc": [
+   {
+    "a": "Regressão Logística",
+    "b": "Árvore de Decisão",
+    "metrica": "roc_auc",
+    "diferenca": 0.02223816355810615,
+    "ic": [
+     -0.011683007845643379,
+     0.058747627383838
+    ],
+    "exclui_zero": false
+   },
+   {
+    "a": "Regressão Logística",
+    "b": "Random Forest",
+    "metrica": "roc_auc",
+    "diferenca": -0.021281683405069418,
+    "ic": [
+     -0.04151574721728188,
+     -0.004086001016260096
+    ],
+    "exclui_zero": true
+   },
+   {
+    "a": "Regressão Logística",
+    "b": "SVM",
+    "metrica": "roc_auc",
+    "diferenca": -0.010162601626016232,
+    "ic": [
+     -0.027442782903378902,
+     0.005800322540077895
+    ],
+    "exclui_zero": false
+   },
+   {
+    "a": "Regressão Logística",
+    "b": "k-NN",
+    "metrica": "roc_auc",
+    "diferenca": -0.009863701578192274,
+    "ic": [
+     -0.03636736399741753,
+     0.014672305907363098
+    ],
+    "exclui_zero": false
+   },
+   {
+    "a": "Árvore de Decisão",
+    "b": "Random Forest",
+    "metrica": "roc_auc",
+    "diferenca": -0.04351984696317557,
+    "ic": [
+     -0.07481326051591702,
+     -0.01753250626267455
+    ],
+    "exclui_zero": true
+   },
+   {
+    "a": "Árvore de Decisão",
+    "b": "SVM",
+    "metrica": "roc_auc",
+    "diferenca": -0.03240076518412238,
+    "ic": [
+     -0.0714399327521485,
+     0.004611388467771375
+    ],
+    "exclui_zero": false
+   },
+   {
+    "a": "Árvore de Decisão",
+    "b": "k-NN",
+    "metrica": "roc_auc",
+    "diferenca": -0.032101865136298424,
+    "ic": [
+     -0.07072752506908761,
+     0.0011239651003162653
+    ],
+    "exclui_zero": false
+   },
+   {
+    "a": "Random Forest",
+    "b": "SVM",
+    "metrica": "roc_auc",
+    "diferenca": 0.011119081779053186,
+    "ic": [
+     -0.00602882007233283,
+     0.029997801528395686
+    ],
+    "exclui_zero": false
+   },
+   {
+    "a": "Random Forest",
+    "b": "k-NN",
+    "metrica": "roc_auc",
+    "diferenca": 0.011417981826877144,
+    "ic": [
+     -0.00913166727140767,
+     0.03208834670231729
+    ],
+    "exclui_zero": false
+   },
+   {
+    "a": "SVM",
+    "b": "k-NN",
+    "metrica": "roc_auc",
+    "diferenca": 0.00029890004782395785,
+    "ic": [
+     -0.022296170911988666,
+     0.02141494871078966
+    ],
+    "exclui_zero": false
+   }
+  ],
+  "limiares": {
+   "Regressão Logística": {
+    "padrao": {
+     "limiar": 0.5,
+     "accuracy": 0.782608695652174,
+     "precision": 0.7818181818181819,
+     "recall": 0.8431372549019608,
+     "specificity": 0.7073170731707317,
+     "roc_auc": 0.8883309421329507,
+     "vn": 58.0,
+     "fp": 24.0,
+     "fn": 16.0,
+     "vp": 86.0,
+     "f1": 0.8113207547169811,
+     "delta_fn": 0,
+     "delta_fp": 0
+    },
+    "0.9": {
+     "limiar": 0.4161899636037189,
+     "revocacao_oof_treino": 0.9017199017199017,
+     "accuracy": 0.7989130434782609,
+     "precision": 0.768595041322314,
+     "recall": 0.9117647058823529,
+     "specificity": 0.6585365853658537,
+     "roc_auc": 0.8883309421329507,
+     "vn": 54.0,
+     "fp": 28.0,
+     "fn": 9.0,
+     "vp": 93.0,
+     "f1": 0.8340807174887892,
+     "delta_fn": -7,
+     "delta_fp": 4
+    },
+    "0.95": {
+     "limiar": 0.29116548944812914,
+     "revocacao_oof_treino": 0.9508599508599509,
+     "accuracy": 0.7880434782608695,
+     "precision": 0.7368421052631579,
+     "recall": 0.9607843137254902,
+     "specificity": 0.573170731707317,
+     "roc_auc": 0.8883309421329507,
+     "vn": 47.0,
+     "fp": 35.0,
+     "fn": 4.0,
+     "vp": 98.0,
+     "f1": 0.8340425531914895,
+     "delta_fn": -12,
+     "delta_fp": 11
+    }
+   },
+   "Árvore de Decisão": {
+    "padrao": {
+     "limiar": 0.5,
+     "accuracy": 0.7445652173913043,
+     "precision": 0.7477477477477478,
+     "recall": 0.8137254901960784,
+     "specificity": 0.6585365853658537,
+     "roc_auc": 0.8660927785748446,
+     "vn": 54.0,
+     "fp": 28.0,
+     "fn": 19.0,
+     "vp": 83.0,
+     "f1": 0.7793427230046949,
+     "delta_fn": 0,
+     "delta_fp": 0
+    },
+    "0.9": {
+     "limiar": 0.2857142857142857,
+     "revocacao_oof_treino": 0.9017199017199017,
+     "accuracy": 0.7880434782608695,
+     "precision": 0.7480314960629921,
+     "recall": 0.9313725490196079,
+     "specificity": 0.6097560975609756,
+     "roc_auc": 0.8660927785748446,
+     "vn": 50.0,
+     "fp": 32.0,
+     "fn": 7.0,
+     "vp": 95.0,
+     "f1": 0.8296943231441049,
+     "delta_fn": -12,
+     "delta_fp": 4
+    },
+    "0.95": {
+     "limiar": 0.14516129032258066,
+     "revocacao_oof_treino": 0.9508599508599509,
+     "accuracy": 0.6902173913043478,
+     "precision": 0.643312101910828,
+     "recall": 0.9901960784313726,
+     "specificity": 0.3170731707317073,
+     "roc_auc": 0.8660927785748446,
+     "vn": 26.0,
+     "fp": 56.0,
+     "fn": 1.0,
+     "vp": 101.0,
+     "f1": 0.7799227799227798,
+     "delta_fn": -18,
+     "delta_fp": 28
+    }
+   },
+   "Random Forest": {
+    "padrao": {
+     "limiar": 0.5,
+     "accuracy": 0.8043478260869565,
+     "precision": 0.7894736842105263,
+     "recall": 0.8823529411764706,
+     "specificity": 0.7073170731707317,
+     "roc_auc": 0.9096126255380201,
+     "vn": 58.0,
+     "fp": 24.0,
+     "fn": 12.0,
+     "vp": 90.0,
+     "f1": 0.8333333333333333,
+     "delta_fn": 0,
+     "delta_fp": 0
+    },
+    "0.9": {
+     "limiar": 0.4611480573756003,
+     "revocacao_oof_treino": 0.9017199017199017,
+     "accuracy": 0.8097826086956522,
+     "precision": 0.7863247863247863,
+     "recall": 0.9019607843137255,
+     "specificity": 0.6951219512195121,
+     "roc_auc": 0.9096126255380201,
+     "vn": 57.0,
+     "fp": 25.0,
+     "fn": 10.0,
+     "vp": 92.0,
+     "f1": 0.8401826484018264,
+     "delta_fn": -2,
+     "delta_fp": 1
+    },
+    "0.95": {
+     "limiar": 0.36203790254424517,
+     "revocacao_oof_treino": 0.9508599508599509,
+     "accuracy": 0.8097826086956522,
+     "precision": 0.7557251908396947,
+     "recall": 0.9705882352941176,
+     "specificity": 0.6097560975609756,
+     "roc_auc": 0.9096126255380201,
+     "vn": 50.0,
+     "fp": 32.0,
+     "fn": 3.0,
+     "vp": 99.0,
+     "f1": 0.8497854077253219,
+     "delta_fn": -9,
+     "delta_fp": 8
+    }
+   },
+   "SVM": {
+    "padrao": {
+     "limiar": 0.5,
+     "accuracy": 0.8043478260869565,
+     "precision": 0.7894736842105263,
+     "recall": 0.8823529411764706,
+     "specificity": 0.7073170731707317,
+     "roc_auc": 0.898493543758967,
+     "vn": 58.0,
+     "fp": 24.0,
+     "fn": 12.0,
+     "vp": 90.0,
+     "f1": 0.8333333333333333,
+     "delta_fn": 0,
+     "delta_fp": 0
+    },
+    "0.9": {
+     "limiar": 0.4288408591909671,
+     "revocacao_oof_treino": 0.9017199017199017,
+     "accuracy": 0.8043478260869565,
+     "precision": 0.7619047619047619,
+     "recall": 0.9411764705882353,
+     "specificity": 0.6341463414634146,
+     "roc_auc": 0.898493543758967,
+     "vn": 52.0,
+     "fp": 30.0,
+     "fn": 6.0,
+     "vp": 96.0,
+     "f1": 0.8421052631578947,
+     "delta_fn": -6,
+     "delta_fp": 6
+    },
+    "0.95": {
+     "limiar": 0.2642949479005399,
+     "revocacao_oof_treino": 0.9508599508599509,
+     "accuracy": 0.7934782608695652,
+     "precision": 0.7388059701492538,
+     "recall": 0.9705882352941176,
+     "specificity": 0.573170731707317,
+     "roc_auc": 0.898493543758967,
+     "vn": 47.0,
+     "fp": 35.0,
+     "fn": 3.0,
+     "vp": 99.0,
+     "f1": 0.8389830508474577,
+     "delta_fn": -9,
+     "delta_fp": 11
+    }
+   },
+   "k-NN": {
+    "padrao": {
+     "limiar": 0.5,
+     "accuracy": 0.7934782608695652,
+     "precision": 0.7909090909090909,
+     "recall": 0.8529411764705882,
+     "specificity": 0.7195121951219512,
+     "roc_auc": 0.898194643711143,
+     "vn": 59.0,
+     "fp": 23.0,
+     "fn": 15.0,
+     "vp": 87.0,
+     "f1": 0.820754716981132,
+     "delta_fn": 0,
+     "delta_fp": 0
+    },
+    "0.9": {
+     "limiar": 0.42857142857142855,
+     "revocacao_oof_treino": 0.9090909090909091,
+     "accuracy": 0.7934782608695652,
+     "precision": 0.7711864406779662,
+     "recall": 0.8921568627450981,
+     "specificity": 0.6707317073170732,
+     "roc_auc": 0.898194643711143,
+     "vn": 55.0,
+     "fp": 27.0,
+     "fn": 11.0,
+     "vp": 91.0,
+     "f1": 0.8272727272727273,
+     "delta_fn": -4,
+     "delta_fp": 4
+    },
+    "0.95": {
+     "limiar": 0.2857142857142857,
+     "revocacao_oof_treino": 0.9582309582309583,
+     "accuracy": 0.7880434782608695,
+     "precision": 0.7404580152671756,
+     "recall": 0.9509803921568627,
+     "specificity": 0.5853658536585366,
+     "roc_auc": 0.898194643711143,
+     "vn": 48.0,
+     "fp": 34.0,
+     "fn": 5.0,
+     "vp": 97.0,
+     "f1": 0.832618025751073,
+     "delta_fn": -10,
+     "delta_fp": 11
+    }
+   }
+  },
+  "matrizes_confusao": {
+   "Regressão Logística": {
+    "vn": 58,
+    "fp": 24,
+    "fn": 16,
+    "vp": 86
+   },
+   "Árvore de Decisão": {
+    "vn": 54,
+    "fp": 28,
+    "fn": 19,
+    "vp": 83
+   },
+   "Random Forest": {
+    "vn": 58,
+    "fp": 24,
+    "fn": 12,
+    "vp": 90
+   },
+   "SVM": {
+    "vn": 58,
+    "fp": 24,
+    "fn": 12,
+    "vp": 90
+   },
+   "k-NN": {
+    "vn": 59,
+    "fp": 23,
+    "fn": 15,
+    "vp": 87
+   }
+  },
+  "rf_svm": {
+   "matriz_rf": {
+    "vn": 58,
+    "fp": 24,
+    "fn": 12,
+    "vp": 90
+   },
+   "matriz_svm": {
+    "vn": 58,
+    "fp": 24,
+    "fn": 12,
+    "vp": 90
+   },
+   "matrizes_iguais": true,
+   "n_predicoes_diferentes": 4,
+   "casos_diferentes": [
+    {
+     "indice_registro": 124,
+     "base": "Cleveland",
+     "real": 1,
+     "pred_rf": 0,
+     "prob_rf": 0.48398095639302385,
+     "pred_svm": 1,
+     "prob_svm": 0.6574597744999838
+    },
+    {
+     "indice_registro": 820,
+     "base": "Long Beach VA",
+     "real": 1,
+     "pred_rf": 0,
+     "prob_rf": 0.41160451167841416,
+     "pred_svm": 1,
+     "prob_svm": 0.5427756005976695
+    },
+    {
+     "indice_registro": 905,
+     "base": "Long Beach VA",
+     "real": 1,
+     "pred_rf": 1,
+     "prob_rf": 0.5449905359754676,
+     "pred_svm": 0,
+     "prob_svm": 0.4995190168718158
+    },
+    {
+     "indice_registro": 284,
+     "base": "Cleveland",
+     "real": 1,
+     "pred_rf": 1,
+     "prob_rf": 0.5280679404309396,
+     "pred_svm": 0,
+     "prob_svm": 0.36314668171156556
+    }
+   ],
+   "probabilidades_identicas": false,
+   "correlacao_probabilidades": 0.9736845676405821,
+   "classes_dos_estimadores": [
+    "RandomForestClassifier",
+    "CalibratedClassifierCV"
+   ],
+   "objetos_distintos": true
+  },
+  "baselines": {
+   "Classe majoritária": {
+    "metricas": {
+     "accuracy": 0.5543478260869565,
+     "precision": 0.5543478260869565,
+     "recall": 1.0,
+     "specificity": 0.0,
+     "roc_auc": 0.5,
+     "vn": 0.0,
+     "fp": 82.0,
+     "fn": 0.0,
+     "vp": 102.0,
+     "f1": 0.7132867132867133
+    },
+    "ic": {
+     "accuracy": [
+      0.483695652173913,
+      0.625
+     ],
+     "precision": [
+      0.483695652173913,
+      0.625
+     ],
+     "recall": [
+      1.0,
+      1.0
+     ],
+     "specificity": [
+      0.0,
+      0.0
+     ],
+     "f1": [
+      0.652014652014652,
+      0.7692307692307693
+     ],
+     "roc_auc": [
+      0.5,
+      0.5
+     ]
+    }
+   },
+   "Estratificado": {
+    "metricas": {
+     "accuracy": 0.5217391304347826,
+     "precision": 0.5636363636363636,
+     "recall": 0.6078431372549019,
+     "specificity": 0.4146341463414634,
+     "roc_auc": 0.5112386417981827,
+     "vn": 34.0,
+     "fp": 48.0,
+     "fn": 40.0,
+     "vp": 62.0,
+     "f1": 0.5849056603773585
+    },
+    "ic": {
+     "accuracy": [
+      0.45095108695652175,
+      0.592391304347826
+     ],
+     "precision": [
+      0.47057566616390145,
+      0.6504968858765341
+     ],
+     "recall": [
+      0.5053763440860215,
+      0.7
+     ],
+     "specificity": [
+      0.3048780487804878,
+      0.5185185185185185
+     ],
+     "f1": [
+      0.49756097560975604,
+      0.6581782945736431
+     ],
+     "roc_auc": [
+      0.4394786115665779,
+      0.5801932451339704
+     ]
+    }
+   }
+  },
+  "prevalencia_teste": {
+   "proporcao": 0.5543478260869565,
+   "positivos": 102,
+   "n": 184
+  },
+  "hiperparametros": {
+   "metodo": "GridSearchCV",
+   "dobras_internas": 5,
+   "dobras_externas": 10,
+   "metrica": "roc_auc",
+   "semente": 42,
+   "modelos": {
+    "Regressão Logística": {
+     "classe": "LogisticRegression",
+     "grade": [
+      {
+       "C": [
+        0.01,
+        0.1,
+        1,
+        10,
+        100
+       ],
+       "solver": [
+        "liblinear",
+        "lbfgs"
+       ]
+      }
+     ],
+     "n_combinacoes": 10,
+     "escolhidos": {
+      "C": 0.1,
+      "solver": "lbfgs"
+     },
+     "parametros_efetivos": {
+      "C": 0.1,
+      "class_weight": null,
+      "dual": false,
+      "fit_intercept": true,
+      "intercept_scaling": 1,
+      "l1_ratio": 0.0,
+      "max_iter": 1000,
+      "n_jobs": null,
+      "penalty": "deprecated",
+      "random_state": 42,
+      "solver": "lbfgs",
+      "tol": 0.0001,
+      "verbose": 0,
+      "warm_start": false
+     }
+    },
+    "Árvore de Decisão": {
+     "classe": "DecisionTreeClassifier",
+     "grade": [
+      {
+       "criterion": [
+        "gini",
+        "entropy"
+       ],
+       "max_depth": [
+        3,
+        5,
+        7,
+        10,
+        null
+       ],
+       "min_samples_split": [
+        2,
+        5,
+        10
+       ],
+       "min_samples_leaf": [
+        1,
+        2,
+        5
+       ]
+      }
+     ],
+     "n_combinacoes": 90,
+     "escolhidos": {
+      "criterion": "entropy",
+      "max_depth": 3,
+      "min_samples_leaf": 1,
+      "min_samples_split": 2
+     },
+     "parametros_efetivos": {
+      "ccp_alpha": 0.0,
+      "class_weight": null,
+      "criterion": "entropy",
+      "max_depth": 3,
+      "max_features": null,
+      "max_leaf_nodes": null,
+      "min_impurity_decrease": 0.0,
+      "min_samples_leaf": 1,
+      "min_samples_split": 2,
+      "min_weight_fraction_leaf": 0.0,
+      "monotonic_cst": null,
+      "random_state": 42,
+      "splitter": "best"
+     }
+    },
+    "Random Forest": {
+     "classe": "RandomForestClassifier",
+     "grade": [
+      {
+       "n_estimators": [
+        100,
+        200,
+        500
+       ],
+       "max_depth": [
+        5,
+        10,
+        null
+       ],
+       "max_features": [
+        "sqrt",
+        "log2"
+       ],
+       "min_samples_leaf": [
+        1,
+        2,
+        4
+       ]
+      }
+     ],
+     "n_combinacoes": 54,
+     "escolhidos": {
+      "max_depth": 5,
+      "max_features": "sqrt",
+      "min_samples_leaf": 2,
+      "n_estimators": 200
+     },
+     "parametros_efetivos": {
+      "bootstrap": true,
+      "ccp_alpha": 0.0,
+      "class_weight": null,
+      "criterion": "gini",
+      "max_depth": 5,
+      "max_features": "sqrt",
+      "max_leaf_nodes": null,
+      "max_samples": null,
+      "min_impurity_decrease": 0.0,
+      "min_samples_leaf": 2,
+      "min_samples_split": 2,
+      "min_weight_fraction_leaf": 0.0,
+      "monotonic_cst": null,
+      "n_estimators": 200,
+      "n_jobs": null,
+      "oob_score": false,
+      "random_state": 42,
+      "verbose": 0,
+      "warm_start": false
+     }
+    },
+    "SVM": {
+     "classe": "CalibratedClassifierCV",
+     "grade": [
+      {
+       "kernel": [
+        "linear"
+       ],
+       "C": [
+        0.1,
+        1,
+        10,
+        100
+       ]
+      },
+      {
+       "kernel": [
+        "rbf"
+       ],
+       "C": [
+        0.1,
+        1,
+        10,
+        100
+       ],
+       "gamma": [
+        "scale",
+        "auto",
+        0.01,
+        0.1
+       ]
+      }
+     ],
+     "n_combinacoes": 20,
+     "escolhidos": {
+      "C": 1,
+      "gamma": "auto",
+      "kernel": "rbf"
+     },
+     "parametros_efetivos": {
+      "cv": null,
+      "ensemble": false,
+      "SVC.C": 1,
+      "SVC.break_ties": false,
+      "SVC.cache_size": 200,
+      "SVC.class_weight": null,
+      "SVC.coef0": 0.0,
+      "SVC.decision_function_shape": "ovr",
+      "SVC.degree": 3,
+      "SVC.gamma": "auto",
+      "SVC.kernel": "rbf",
+      "SVC.max_iter": -1,
+      "SVC.probability": "deprecated",
+      "SVC.random_state": null,
+      "SVC.shrinking": true,
+      "SVC.tol": 0.001,
+      "SVC.verbose": false,
+      "method": "sigmoid",
+      "n_jobs": null
+     }
+    },
+    "k-NN": {
+     "classe": "KNeighborsClassifier",
+     "grade": [
+      {
+       "n_neighbors": [
+        3,
+        5,
+        7,
+        9,
+        11,
+        15,
+        21
+       ],
+       "weights": [
+        "uniform",
+        "distance"
+       ],
+       "metric": [
+        "euclidean",
+        "manhattan"
+       ]
+      }
+     ],
+     "n_combinacoes": 28,
+     "escolhidos": {
+      "metric": "manhattan",
+      "n_neighbors": 15,
+      "weights": "uniform"
+     },
+     "parametros_efetivos": {
+      "algorithm": "auto",
+      "leaf_size": 30,
+      "metric": "manhattan",
+      "metric_params": null,
+      "n_jobs": null,
+      "n_neighbors": 15,
+      "p": 2,
+      "weights": "uniform"
+     }
+    }
+   }
+  }
+ },
+ "cenario_ca_thal": {
+  "Regressão Logística": {
+   "auc_cv": [
+    0.8790068366592756,
+    0.024992776650253706
+   ],
+   "auc_teste": 0.8928742228598757,
+   "recall_teste": 0.8431372549019608,
+   "auc_cv_sem": [
+    0.8770145048041389,
+    0.02822199404021185
+   ],
+   "auc_teste_sem": 0.8883309421329507
+  },
+  "Árvore de Decisão": {
+   "auc_cv": [
+    0.8086675443458982,
+    0.023336684794175975
+   ],
+   "auc_teste": 0.8706958393113342,
+   "recall_teste": 0.9313725490196079,
+   "auc_cv_sem": [
+    0.7998782797487065,
+    0.03817296201567076
+   ],
+   "auc_teste_sem": 0.8660927785748446
+  },
+  "Random Forest": {
+   "auc_cv": [
+    0.883009053954176,
+    0.026137132196508563
+   ],
+   "auc_teste": 0.9157101865136299,
+   "recall_teste": 0.8627450980392157,
+   "auc_cv_sem": [
+    0.8735749260901701,
+    0.02427330144096519
+   ],
+   "auc_teste_sem": 0.9096126255380201,
+   "importancia": {
+    "cp": 0.10086481747170423,
+    "exang": 0.01906982305117176,
+    "oldpeak": 0.017475689462777062,
+    "sex": 0.013079866092778636,
+    "thalach": 0.010895903076677867,
+    "thal": 0.010178542961900265,
+    "chol": 0.0033277538657740155,
+    "ca": 0.0021441096763909337,
+    "slope": 0.001753546947234245,
+    "age": 0.0016539135979595665,
+    "trestbps": 0.0003666507253308489,
+    "fbs": 0.0002112227004623694,
+    "restecg": -0.00011158935118757985
+   }
+  },
+  "SVM": {
+   "auc_cv": [
+    0.8827947154471545,
+    0.02332286654151456
+   ],
+   "auc_teste": 0.9025585844093735,
+   "recall_teste": 0.8627450980392157,
+   "auc_cv_sem": [
+    0.8731910569105692,
+    0.028974548713307204
+   ],
+   "auc_teste_sem": 0.898493543758967
+  },
+  "k-NN": {
+   "auc_cv": [
+    0.8754605506282335,
+    0.0347406291972536
+   ],
+   "auc_teste": 0.9021999043519847,
+   "recall_teste": 0.8627450980392157,
+   "auc_cv_sem": [
+    0.8573032150776054,
+    0.03657386865388807
+   ],
+   "auc_teste_sem": 0.898194643711143
+  }
+ },
+ "hospital_fora": {
+  "Cleveland": {
+   "n": 303,
+   "positivos": 139,
+   "Regressão Logística": {
+    "accuracy": 0.7722772277227723,
+    "precision": 0.7034883720930233,
+    "recall": 0.8705035971223022,
+    "specificity": 0.6890243902439024,
+    "f1": 0.7781350482315113,
+    "roc_auc": 0.8671258115458852,
+    "auc_ic": [
+     0.8263547750870337,
+     0.9067595453249814
+    ]
+   },
+   "Árvore de Decisão": {
+    "accuracy": 0.6237623762376238,
+    "precision": 0.5603864734299517,
+    "recall": 0.8345323741007195,
+    "specificity": 0.4451219512195122,
+    "f1": 0.6705202312138729,
+    "roc_auc": 0.7707053869099842,
+    "auc_ic": [
+     0.7144991091533985,
+     0.8240754974865594
+    ]
+   },
+   "Random Forest": {
+    "accuracy": 0.7458745874587459,
+    "precision": 0.6722222222222223,
+    "recall": 0.8705035971223022,
+    "specificity": 0.6402439024390244,
+    "f1": 0.7586206896551724,
+    "roc_auc": 0.8608089138445342,
+    "auc_ic": [
+     0.8181654127235767,
+     0.8998523986648557
+    ]
+   },
+   "SVM": {
+    "accuracy": 0.7293729372937293,
+    "precision": 0.6492146596858639,
+    "recall": 0.8920863309352518,
+    "specificity": 0.5914634146341463,
+    "f1": 0.7515151515151515,
+    "roc_auc": 0.8665116687138096,
+    "auc_ic": [
+     0.8232304604925763,
+     0.9041525400841777
+    ]
+   },
+   "k-NN": {
+    "accuracy": 0.7260726072607261,
+    "precision": 0.648936170212766,
+    "recall": 0.8776978417266187,
+    "specificity": 0.5975609756097561,
+    "f1": 0.746177370030581,
+    "roc_auc": 0.8458062818038253,
+    "auc_ic": [
+     0.7997632247165019,
+     0.8899874219267646
+    ]
+   }
+  },
+  "Hungria": {
+   "n": 294,
+   "positivos": 106,
+   "Regressão Logística": {
+    "accuracy": 0.8027210884353742,
+    "precision": 0.6690140845070423,
+    "recall": 0.8962264150943396,
+    "specificity": 0.75,
+    "f1": 0.7661290322580646,
+    "roc_auc": 0.8937675632276194,
+    "auc_ic": [
+     0.8533150667727031,
+     0.9307521739092584
+    ]
+   },
+   "Árvore de Decisão": {
+    "accuracy": 0.6564625850340136,
+    "precision": 0.5133689839572193,
+    "recall": 0.9056603773584906,
+    "specificity": 0.5159574468085106,
+    "f1": 0.6552901023890786,
+    "roc_auc": 0.8455690485748696,
+    "auc_ic": [
+     0.7948474301461881,
+     0.8927616453367903
+    ]
+   },
+   "Random Forest": {
+    "accuracy": 0.7551020408163265,
+    "precision": 0.6075949367088608,
+    "recall": 0.9056603773584906,
+    "specificity": 0.6702127659574468,
+    "f1": 0.7272727272727274,
+    "roc_auc": 0.8771075873143316,
+    "auc_ic": [
+     0.832943675967925,
+     0.9152463907815757
+    ]
+   },
+   "SVM": {
+    "accuracy": 0.7517006802721088,
+    "precision": 0.6064516129032258,
+    "recall": 0.8867924528301887,
+    "specificity": 0.675531914893617,
+    "f1": 0.7203065134099617,
+    "roc_auc": 0.8672721798474508,
+    "auc_ic": [
+     0.8213511208576997,
+     0.9070894832766642
+    ]
+   },
+   "k-NN": {
+    "accuracy": 0.7278911564625851,
+    "precision": 0.5747126436781609,
+    "recall": 0.9433962264150944,
+    "specificity": 0.6063829787234043,
+    "f1": 0.7142857142857142,
+    "roc_auc": 0.8789893617021276,
+    "auc_ic": [
+     0.8346327030127214,
+     0.916770738887236
+    ]
+   }
+  },
+  "Suica": {
+   "n": 123,
+   "positivos": 115,
+   "Regressão Logística": {
+    "accuracy": 0.6991869918699187,
+    "precision": 0.9642857142857143,
+    "recall": 0.7043478260869566,
+    "specificity": 0.625,
+    "f1": 0.8140703517587939,
+    "roc_auc": 0.7478260869565218,
+    "auc_ic": [
+     0.5206443441414886,
+     0.9517201772013151
+    ]
+   },
+   "Árvore de Decisão": {
+    "accuracy": 0.5772357723577236,
+    "precision": 0.9315068493150684,
+    "recall": 0.591304347826087,
+    "specificity": 0.375,
+    "f1": 0.723404255319149,
+    "roc_auc": 0.6271739130434782,
+    "auc_ic": [
+     0.4685408215010142,
+     0.7941701680672265
+    ]
+   },
+   "Random Forest": {
+    "accuracy": 0.6910569105691057,
+    "precision": 0.963855421686747,
+    "recall": 0.6956521739130435,
+    "specificity": 0.625,
+    "f1": 0.808080808080808,
+    "roc_auc": 0.7576086956521739,
+    "auc_ic": [
+     0.49721014492753624,
+     0.9766351131335057
+    ]
+   },
+   "SVM": {
+    "accuracy": 0.6910569105691057,
+    "precision": 0.963855421686747,
+    "recall": 0.6956521739130435,
+    "specificity": 0.625,
+    "f1": 0.808080808080808,
+    "roc_auc": 0.7619565217391304,
+    "auc_ic": [
+     0.5388782051282052,
+     0.9621980487110098
+    ]
+   },
+   "k-NN": {
+    "accuracy": 0.7642276422764228,
+    "precision": 0.967391304347826,
+    "recall": 0.7739130434782608,
+    "specificity": 0.625,
+    "f1": 0.859903381642512,
+    "roc_auc": 0.7956521739130435,
+    "auc_ic": [
+     0.570579219318912,
+     0.9618380541871921
+    ]
+   }
+  },
+  "Long Beach VA": {
+   "n": 200,
+   "positivos": 149,
+   "Regressão Logística": {
+    "accuracy": 0.75,
+    "precision": 0.8113207547169812,
+    "recall": 0.8657718120805369,
+    "specificity": 0.4117647058823529,
+    "f1": 0.8376623376623376,
+    "roc_auc": 0.7472035794183445,
+    "auc_ic": [
+     0.660183952139344,
+     0.8242491389389199
+    ]
+   },
+   "Árvore de Decisão": {
+    "accuracy": 0.68,
+    "precision": 0.7891156462585034,
+    "recall": 0.7785234899328859,
+    "specificity": 0.39215686274509803,
+    "f1": 0.7837837837837838,
+    "roc_auc": 0.6794973022766153,
+    "auc_ic": [
+     0.5987723847098847,
+     0.7575694587498876
+    ]
+   },
+   "Random Forest": {
+    "accuracy": 0.755,
+    "precision": 0.8164556962025317,
+    "recall": 0.8657718120805369,
+    "specificity": 0.43137254901960786,
+    "f1": 0.8403908794788273,
+    "roc_auc": 0.7314120278984078,
+    "auc_ic": [
+     0.6421418911870579,
+     0.8182397142471931
+    ]
+   },
+   "SVM": {
+    "accuracy": 0.74,
+    "precision": 0.8169934640522876,
+    "recall": 0.8389261744966443,
+    "specificity": 0.45098039215686275,
+    "f1": 0.8278145695364238,
+    "roc_auc": 0.7465455981050138,
+    "auc_ic": [
+     0.6699464073820114,
+     0.8211921661855438
+    ]
+   },
+   "k-NN": {
+    "accuracy": 0.75,
+    "precision": 0.8193548387096774,
+    "recall": 0.8523489932885906,
+    "specificity": 0.45098039215686275,
+    "f1": 0.8355263157894737,
+    "roc_auc": 0.7236478484011055,
+    "auc_ic": [
+     0.6347076946042463,
+     0.8106355446171996
+    ]
+   }
+  }
+ },
+ "tempo_total_s": 501
+}

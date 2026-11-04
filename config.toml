@@ -1,0 +1,25 @@
+# Configuração do experimento. Todos os resultados do trabalho saem destes valores.
+# Alterar qualquer item muda os números: mantenha-os para reproduzir o TCC.
+
+[geral]
+semente = 42                 # semente única para divisão, validação, modelos e bootstrap
+pasta_dados = "dados"
+pasta_saida = "saida"
+url_base = "https://archive.ics.uci.edu/ml/machine-learning-databases/heart-disease/"
+
+[divisao]
+proporcao_teste = 0.20       # divisão estratificada 80/20; o teste é usado uma única vez
+
+[preprocessamento]
+limiar_descarte = 0.50       # descarta atributo com mais de 50% de ausência, medido só no treino
+
+[validacao]
+dobras_externas = 10         # validação cruzada aninhada: estimativa de desempenho
+dobras_internas = 5          # busca em grade: seleção de hiperparâmetros
+metrica_selecao = "roc_auc"
+
+[avaliacao]
+n_bootstrap = 2000           # reamostragens do teste para os intervalos de confiança de 95%
+n_permutacoes = 30           # repetições da importância por permutação
+limiar_padrao = 0.5
+metas_revocacao = [0.90, 0.95]   # limiares escolhidos nas predições fora da dobra do treino

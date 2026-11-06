@@ -13,7 +13,7 @@ figuras do artigo e da monografia.
 Requer Python 3.11 ou superior (os resultados oficiais foram obtidos com Python 3.14.4).
 
 ```bash
-git clone https://github.com/<usuario>/tcc-predicao-doenca-cardiaca.git
+git clone https://github.com/jMoobiis/tcc-predicao-doenca-cardiaca.git
 cd tcc-predicao-doenca-cardiaca
 python -m venv .venv
 # Windows: .venv\Scripts\activate    |    Linux/macOS: source .venv/bin/activate

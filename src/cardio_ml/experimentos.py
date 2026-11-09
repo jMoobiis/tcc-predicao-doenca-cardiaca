@@ -69,7 +69,7 @@ def _processador():
 
 
 def ambiente(rel: Relatorio, cfg: Config):
-    rel.titulo("AMBIENTE DE EXECUCAO (Quadro 6)")
+    rel.titulo("AMBIENTE DE EXECUCAO (Artigo: Secao 3.1)")
     versoes = {
         "Python": platform.python_version(), "pandas": pd.__version__, "NumPy": np.__version__,
         "scikit-learn": sklearn.__version__, "Matplotlib": matplotlib.__version__,
@@ -89,11 +89,11 @@ def ambiente(rel: Relatorio, cfg: Config):
 
 # ------------------------------------------------------------------ 4.1 exploratória
 def exploratoria(dados, rel: Relatorio, cfg: Config):
-    rel.titulo("4.1  ANALISE EXPLORATORIA DE DADOS")
+    rel.titulo("ANALISE EXPLORATORIA DE DADOS (Artigo: Secao 4, Tabela 1)")
     rel.log(f"Total de registros: {len(dados)}")
     rel.log(f"Atributos preditores no arquivo: {len(PREDITORES)}")
     rel.log("")
-    rel.log("--- Tabela 1: distribuicao do alvo por base ---")
+    rel.log("--- Distribuicao do alvo por base (Artigo: Tabela 1, n e Positivos) ---")
     t1 = dados.groupby("base")["alvo"].agg(
         Registros="count",
         Classe_0=lambda s: int((s == 0).sum()),
@@ -102,17 +102,17 @@ def exploratoria(dados, rel: Relatorio, cfg: Config):
     t1["pct_classe_1"] = 100 * t1["Classe_1"] / t1["Registros"]
     rel.log(t1.round(1).to_string()); rel.log("")
 
-    rel.log("--- Tabela 2: percentual de valores ausentes por atributo e base ---")
+    rel.log("--- Percentual de valores ausentes por atributo e base (Artigo: Tabela 1, colunas de ausencia) ---")
     t2 = dados.groupby("base")[PREDITORES].apply(lambda g: g.isna().mean() * 100).T[BASES]
     t2["Total"] = dados[PREDITORES].isna().mean() * 100
     rel.log(t2.round(1).to_string()); rel.log("")
 
-    rel.log("--- Tabela 3: estatisticas descritivas dos atributos numericos ---")
+    rel.log("--- Estatisticas descritivas dos atributos numericos (material de apoio) ---")
     t3 = dados[NUMERICAS].describe().T[["mean", "std", "min", "50%", "max", "count"]]
     t3["assimetria"] = [skew(dados[c].dropna()) for c in NUMERICAS]
     rel.log(t3.round(2).to_string()); rel.log("")
 
-    rel.log("--- Apoio a discussao: ausencia de colesterol x diagnostico ---")
+    rel.log("--- Ausencia de colesterol x diagnostico (Artigo: Secao 4, discussao da Tabela 1) ---")
     chol_aus = dados["chol"].isna()
     pct_aus = 100 * dados.loc[chol_aus, "alvo"].mean()
     pct_pres = 100 * dados.loc[~chol_aus, "alvo"].mean()
@@ -141,7 +141,7 @@ def exploratoria(dados, rel: Relatorio, cfg: Config):
 def principal(dados, rel: Relatorio, cfg: Config):
     X_tr, X_te, y_tr, y_te, b_tr, b_te = dividir(dados, cfg)
     usados, descartados, ausencia = decidir_atributos(X_tr, cfg.limiar_descarte)
-    rel.titulo("PRE-PROCESSAMENTO (Secao 3.3)")
+    rel.titulo("PRE-PROCESSAMENTO (Artigo: Secao 3.1)")
     rel.log(f"Treino: {len(X_tr)} registros | Teste: {len(X_te)} registros")
     rel.log(f"Limiar de descarte: {cfg.limiar_descarte:.0%} de ausencia, medido SO no treino")
     for c in PREDITORES:
@@ -162,8 +162,8 @@ def principal(dados, rel: Relatorio, cfg: Config):
         cv[nome], escolhas[nome], oofs[nome] = validacao_aninhada(nome, usados, X_tr, y_tr, cfg)
         finais[nome] = ajustar_final(nome, usados, X_tr, y_tr, cfg)
 
-    rel.titulo("4.2  DESEMPENHO DOS MODELOS")
-    rel.log("--- Tabela 4: hiperparametros selecionados (busca em grade no treino inteiro) ---")
+    rel.titulo("DESEMPENHO DOS MODELOS (Artigo: Secao 4)")
+    rel.log("--- Hiperparametros selecionados, busca em grade no treino inteiro (Artigo: Quadro 2) ---")
     for nome, gs in finais.items():
         rel.log(f"{nome}: {limpar(gs.best_params_)} | AUC media (5 dobras internas) = {gs.best_score_:.4f}")
     rel.log("")
@@ -173,7 +173,7 @@ def principal(dados, rel: Relatorio, cfg: Config):
         rel.log(f"  {nome}: {len(contagem)} configuracoes distintas; mais frequente ({contagem.iloc[0]}x): "
                 f"{contagem.index[0]}")
     rel.log("")
-    rel.log("--- Tabela 5: validacao cruzada ANINHADA, 10 dobras externas (media ± desvio) ---")
+    rel.log("--- Validacao cruzada ANINHADA, 10 dobras externas, media ± desvio (Artigo: Tabela 2) ---")
     rel.log(f"{'Modelo':22s}" + "".join(f"{m:>16s}" for m in METRICAS))
     for nome, r in cv.items():
         rel.log(f"{nome:22s}" + "".join(f"{fmt(m, r):>16s}" for m in METRICAS))
@@ -188,7 +188,7 @@ def principal(dados, rel: Relatorio, cfg: Config):
     indices = indices_bootstrap(y_te, cfg.n_bootstrap, cfg.semente)
     ic, amostras = bootstrap(y_te, probs, indices)
 
-    rel.log("--- Tabela 6: desempenho no conjunto de teste [IC 95% bootstrap] ---")
+    rel.log("--- Desempenho no conjunto de teste [IC 95% bootstrap] (Artigo: Tabela 2) ---")
     for nome, r in teste.items():
         partes = [f"{m}={r[m]:.4f} [{ic[nome][m][0]:.3f}; {ic[nome][m][1]:.3f}]" for m in METRICAS]
         rel.log(f"{nome}:")
@@ -205,11 +205,11 @@ def principal(dados, rel: Relatorio, cfg: Config):
     rel.log("")
 
     r = teste[melhor]
-    rel.log(f"--- Tabela 7: matriz de confusao do melhor modelo ({melhor}), limiar 0,5 ---")
+    rel.log(f"--- Matriz de confusao do modelo selecionado ({melhor}), limiar 0,5 (Artigo: Tabela 4) ---")
     rel.log(f"VN = {r['vn']}   FP = {r['fp']}")
     rel.log(f"FN = {r['fn']}   VP = {r['vp']}"); rel.log("")
 
-    rel.log(f"--- Apoio a discussao da Tabela 7: limiar escolhido no TREINO ({melhor}) ---")
+    rel.log(f"--- Limiar escolhido no TREINO ({melhor}) (Artigo: Tabela 4) ---")
     rel.log("O limiar e o maior valor cuja revocacao, nas previsoes fora da dobra da validacao")
     rel.log("aninhada, atinge a meta. So depois ele e aplicado ao teste.")
     lim_melhor = {}
@@ -222,7 +222,7 @@ def principal(dados, rel: Relatorio, cfg: Config):
                 f"FN={rt['fn']} FP={rt['fp']}")
     rel.log("")
 
-    rel.log("--- Tabela 9: desempenho no teste por base hospitalar (limiar 0,5) ---")
+    rel.log("--- Desempenho no teste por base hospitalar, limiar 0,5 (material de apoio) ---")
     por_base = {}
     for nome in nomes:
         por_base[nome] = {}
@@ -239,7 +239,7 @@ def principal(dados, rel: Relatorio, cfg: Config):
     rel.log("  (modelo: " + melhor + "; demais modelos no JSON)"); rel.log("")
 
     rel.progresso("importancia por permutacao")
-    rel.log("--- Tabela 8: importancia por permutacao no teste (queda de AUC), Random Forest ---")
+    rel.log("--- Importancia por permutacao no teste (queda de AUC), Random Forest (Artigo: Secao 4, analises complementares) ---")
     imp_rf = importancia_permutacao(finais["Random Forest"].best_estimator_, X_te[usados], y_te,
                                     cfg.n_permutacoes, cfg.semente)
     rel.log(imp_rf.round(4).to_string()); rel.log("")
@@ -289,10 +289,10 @@ def principal(dados, rel: Relatorio, cfg: Config):
 # ------------------------------------------------------------------ análises da revisão
 def revisao(rel, cfg, nomes, X_tr, y_tr, X_te, y_te, b_te, finais, oofs, probs, teste, amostras, indices):
     rev = {}
-    rel.titulo("REVISAO DO ORIENTADOR: ANALISES ACRESCENTADAS")
+    rel.titulo("COMPARACOES, LIMIARES E LINHAS DE BASE (Artigo: Secao 4)")
 
     # (1) todas as diferenças pareadas de AUC
-    rel.log("--- (1) Diferencas pareadas de AUC no teste, todos os pares (a - b) [IC 95% bootstrap] ---")
+    rel.log("--- Diferencas pareadas de AUC no teste, todos os pares (a - b) [IC 95% bootstrap] (Artigo: Tabela 3) ---")
     pares = diferencas_pareadas(amostras, teste, nomes, "roc_auc")
     for d in pares:
         marca = "EXCLUI ZERO" if d["exclui_zero"] else "inclui zero"
@@ -303,7 +303,7 @@ def revisao(rel, cfg, nomes, X_tr, y_tr, X_te, y_te, b_te, finais, oofs, probs, 
             [[d["a"], d["b"], f"{d['diferenca']:.4f}", f"{d['ic'][0]:.4f}", f"{d['ic'][1]:.4f}", d["exclui_zero"]] for d in pares])
 
     # (2) limiares para todos os modelos
-    rel.log("--- (2) Limiar escolhido nas predicoes fora da dobra do TREINO, aplicado ao teste ---")
+    rel.log("--- Limiar escolhido nas predicoes fora da dobra do TREINO, aplicado ao teste (Artigo: Tabela 4) ---")
     lim = {}
     linhas = []
     for nome in nomes:
@@ -324,7 +324,7 @@ def revisao(rel, cfg, nomes, X_tr, y_tr, X_te, y_te, b_te, finais, oofs, probs, 
     rev["matrizes_confusao"] = {n: {k: int(teste[n][k]) for k in ("vn", "fp", "fn", "vp")} for n in nomes}
 
     # (4) Random Forest x SVM: matrizes e predições caso a caso
-    rel.log("--- (4) Random Forest x SVM no teste (limiar 0,5) ---")
+    rel.log("--- Random Forest x SVM no teste, limiar 0,5 (Artigo: Secao 4 e nota da Tabela 4) ---")
     pr = {n: (probs[n] >= cfg.limiar_padrao).astype(int) for n in ("Random Forest", "SVM")}
     yt = np.asarray(y_te)
     difer = np.where(pr["Random Forest"] != pr["SVM"])[0]
@@ -353,7 +353,7 @@ def revisao(rel, cfg, nomes, X_tr, y_tr, X_te, y_te, b_te, finais, oofs, probs, 
     rev["rf_svm"] = rf_svm
 
     # (6) baselines ingênuos, com as MESMAS reamostras bootstrap
-    rel.log("--- (6) Classificadores de referencia (DummyClassifier) no teste [IC 95%] ---")
+    rel.log("--- Classificadores de referencia (DummyClassifier) no teste [IC 95%] (Artigo: Tabela 2) ---")
     pb = baselines(X_tr, y_tr, X_te, cfg.semente)
     ic_b, _ = bootstrap(y_te, pb, indices)
     base = {}
@@ -370,7 +370,7 @@ def revisao(rel, cfg, nomes, X_tr, y_tr, X_te, y_te, b_te, finais, oofs, probs, 
     rev["prevalencia_teste"] = {"proporcao": prev, "positivos": int(yt.sum()), "n": int(len(yt))}
 
     # (5) hiperparâmetros: grade, escolhidos e efetivos
-    rel.log("--- (5) Hiperparametros: grade testada, escolhidos e parametros efetivos ---")
+    rel.log("--- Hiperparametros: grade testada, escolhidos e parametros efetivos (Artigo: Quadro 2) ---")
     hp = descrever_hiperparametros(finais, cfg)
     for n, h in hp.items():
         rel.log(f"  {n} ({h['classe']}; {h['n_combinacoes']} combinacoes): escolhidos {h['escolhidos']}")
@@ -386,7 +386,7 @@ def revisao(rel, cfg, nomes, X_tr, y_tr, X_te, y_te, b_te, finais, oofs, probs, 
 
 # ------------------------------------------------------------------ complementares
 def cenario_ca_thal(X_tr, X_te, y_tr, y_te, usados, rel: Relatorio, cfg: Config):
-    rel.titulo("EXPERIMENTO COMPLEMENTAR A (Tabela 10): cenario com ca e thal mantidos e imputados")
+    rel.titulo("EXPERIMENTO COMPLEMENTAR A: cenario com ca e thal mantidos e imputados (Artigo: Secao 4, analises complementares)")
     extras = [c for c in ["ca", "thal"] if c not in usados]
     todos = [c for c in PREDITORES if c in usados or c in extras]
     rel.log(f"Atributos ({len(todos)}): {todos}")
@@ -418,7 +418,7 @@ def cenario_ca_thal(X_tr, X_te, y_tr, y_te, usados, rel: Relatorio, cfg: Config)
 
 def hospital_fora(dados, usados, rel: Relatorio, cfg: Config):
     from sklearn.metrics import roc_auc_score
-    rel.titulo("EXPERIMENTO COMPLEMENTAR B (Tabela 11): validacao por hospital deixado de fora")
+    rel.titulo("EXPERIMENTO COMPLEMENTAR B: validacao por hospital deixado de fora (Artigo: Tabela 5)")
     rel.log("Atributos: os mesmos do experimento principal. Busca em grade com 5 dobras")
     rel.log("internas sobre as tres bases de treino; a quarta base e usada so para teste.")
     rng = np.random.default_rng(cfg.semente)

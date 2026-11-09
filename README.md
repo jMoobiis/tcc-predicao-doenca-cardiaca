@@ -6,7 +6,7 @@ Artefato de software do Trabalho de Conclusão de Curso de **João Victor Mobigl
 O pipeline compara cinco classificadores supervisionados (Regressão Logística, Árvore de Decisão,
 Random Forest, SVM e k-NN) nas **quatro bases** do conjunto UCI Heart Disease (920 registros) e
 reproduz, a partir dos dados brutos e com um único comando, **todas** as tabelas, números e
-figuras do artigo e da monografia.
+figuras do artigo.
 
 ## Instalação
 
@@ -33,10 +33,25 @@ A saída vai para `saida/`:
 
 | Arquivo | Conteúdo |
 |---|---|
-| `resultados.txt` | todos os números, legíveis, na ordem das tabelas do trabalho |
+| `resultados.txt` | todos os números, legíveis; cada bloco indica o quadro, a tabela ou a seção do artigo a que corresponde |
 | `resultados.json` | os mesmos números em formato estruturado |
 | `tabelas/*.csv` | diferenças pareadas de AUC e análise de limiares |
 | `fig_*.png` | figuras da análise exploratória, curvas ROC, matriz de confusão e diagrama do pipeline |
+
+### Correspondência com o artigo
+
+| Artigo | Onde está na saída |
+|---|---|
+| Quadro 2 – Hiperparâmetros testados e selecionados | `resultados.txt`, blocos marcados "(Artigo: Quadro 2)" |
+| Tabela 1 – Prevalência e valores ausentes por base | `resultados.txt`, blocos marcados "(Artigo: Tabela 1 …)" |
+| Tabela 2 – Desempenho na validação aninhada e no teste, com as linhas de referência | `resultados.txt`, blocos marcados "(Artigo: Tabela 2)" |
+| Tabela 3 – Diferenças pareadas de AUC | `tabelas/diferencas_pareadas_auc.csv` e bloco "(Artigo: Tabela 3)" |
+| Tabela 4 – Limiares de decisão | `tabelas/limiares.csv` e bloco "(Artigo: Tabela 4)" |
+| Tabela 5 – AUC por hospital deixado de fora | bloco "EXPERIMENTO COMPLEMENTAR B … (Artigo: Tabela 5)" |
+| Figura 1 – Curvas ROC | `fig_roc.png` |
+| Análises complementares da Seção 4 (importância por permutação; cenário com ca e thal) | blocos marcados "(Artigo: Secao 4, analises complementares)" |
+
+Os blocos marcados "(material de apoio)" não aparecem no artigo e documentam a análise exploratória.
 
 ### Conferência de reprodutibilidade
 
